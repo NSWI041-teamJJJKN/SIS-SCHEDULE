@@ -4,30 +4,7 @@ Modul rozvrhy slouží k vytváření a prohlížení rozvrhů. V rámci modulu 
 
 ## Functional Requirements
 
-Jan J.
-{
-
-}
-
-Jan S. 
-{
-
-}
-
-Jára
-{
-
-}
-
-Kryštof
-{
-
-}
-
-Nicol
-{
-
-}
+Tato sekce obsahuje funčkní požadavky.
 
 ### User requirements
 Jan J.
@@ -57,15 +34,15 @@ Nicol
 
 ### System requirements
 
-[*Document here your system requirements as use case diagrams.*]
-
 #### Actors
+ - Actor 1 
+ - Actor 2
 
-[*Document here all actors from the use case diagrams. Make a subsection for each actor and their short description in each subsection.*]
+##### Konkrétní actor 1
+Popis actora 1 
 
-##### [*Actor name*]
-
-[*Actor description*]
+##### Konkrétní actor 2
+Popis actora 2
 
 #### Use cases
 
