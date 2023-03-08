@@ -48,13 +48,18 @@ Nicol
 
 #### Actors
  - Student
- - Actor 2
+ - Učitel
+ - Člen rozvrhové komise
 
-##### Konkrétní actor 1
-Popis actora 1 
+##### Student
+Student je osoba zapsaná na univerzitě, která aktivně studuje. 
 
-##### Konkrétní actor 2
-Popis actora 2
+##### Učitel
+Učitel je zaměstnanec univerzity, který se nějakým způsobem podílí na výuce.
+
+##### Člen rozvrhové komise
+Člen rozvrhové komise je zaměstnanec univerzity, jehož náplní práce je podílet se na tvorbě rozvrhů pro dané studijní plány, kontrola kolize mezi rozvrhovými lístky,
+vytváření rozvrhových lístků dle preference učitelů atd.
 
 #### Use cases
 
