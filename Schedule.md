@@ -1,14 +1,59 @@
-# Student information system - [*module title*]
+# Student information system - SCHEDULE
 
-[*Module description*]
+Modul rozvrhy slouží k vytváření a prohlížení rozvrhů. V rámci modulu jsou vedeny předměty a jejich příslušnost do studijních programů a jednotlivých semestrů studia, ve kterých jsou v rámci programu doporučeny. Dále jsou v rámci modulu vedeny učebny pro výuku a jejich kapacita. Pro každý předmět jsou evidovány rozvrhové lístky přednášek a cvičení, včetně jejich kapacit a vyučujících. Modul umožňuje rozvrhové komisi v jednotlivých semestrech vytváření centrálních rozvrhů přiřazováním rozvrhových lístků k učebnám na konkrétní den v týdnu a hodinu. Předměty ve stejném studijním programu a semestru musí být rozvrhovány tak, aby měli studenti v daném studijním programu a semestru možnost tyto předměty navštěvovat. Dále nesmí docházet k časovým kolizím jednoho učitele. Modul umožňuje vytvářet statistické reporty o vytíženosti místností v jednotlivých semestrech. 
 
 ## Functional Requirements
 
-This section specifies the functional requirements.
+Jan J.
+{
+
+}
+
+Jan S. 
+{
+
+}
+
+Jára
+{
+
+}
+
+Kryštof
+{
+
+}
+
+Nicol
+{
+
+}
 
 ### User requirements
+Jan J.
+{
 
-[*List of user requirements*]
+}
+
+Jan S. 
+{
+
+}
+
+Jára
+{
+
+}
+
+Kryštof
+{
+
+}
+
+Nicol
+{
+
+}
 
 ### System requirements
 
@@ -33,23 +78,7 @@ This section specifies the functional requirements.
 ```plantuml
 @startuml
 left to right direction
-actor Guest as g
-package Professional {
-  actor Chef as c
-  actor "Food Critic" as fc
-}
-package Restaurant {
-  usecase "Eat Food" as UC1
-  usecase "Pay for Food" as UC2
-  usecase "Drink" as UC3
-  usecase "Review" as UC4
-  usecase "Cook Food" as UC5
-}
-c --> UC5
-fc --> UC4
-g --> UC1
-g --> UC2
-g --> UC3
+
 @enduml
 ```
 
