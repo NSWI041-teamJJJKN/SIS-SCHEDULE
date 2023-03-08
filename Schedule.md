@@ -52,10 +52,10 @@ Nicol
  - Člen rozvrhové komise
 
 ##### Student
-Student je osoba zapsaná na univerzitě, která aktivně studuje. 
+Student je osoba zapsaná na univerzitě, která aktivně studuje. Tedy zapisuje se na určité rozvrhové lístky v daném semestru. Zapisuje si jak povinné, tak i povinně volitelné a volitelné předměty. Může si také zapsat předměty z jiné fakulty, než na které současně studuje.
 
 ##### Učitel
-Učitel je zaměstnanec univerzity, který se nějakým způsobem podílí na výuce.
+Učitel je zaměstnanec univerzity, který se nějakým způsobem podílí na výuce. Má preference ohledně času, kdy může vyučovat. Také má preferenci ohledně toho, kolik rozvrhových lístků chce vyučovat.
 
 ##### Člen rozvrhové komise
 Člen rozvrhové komise je zaměstnanec univerzity, jehož náplní práce je podílet se na tvorbě rozvrhů pro dané studijní plány, kontrola kolize mezi rozvrhovými lístky,
