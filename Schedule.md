@@ -14,34 +14,25 @@ Jakýkoli Uživatel
 - zobrazit si statistický report
 - zobrazit si seznam předmětů a rozvrhových lístků
 
+Uživatel s rozvrhem
+- Chci mít možnost exportovat si rozvrh v různých běžných formátech, abych si jej mohl importovat do svého kalendáře
+- Chci být schopen zapsat si do rozvrhu k lístkům poznámky a vlastní virtuální lístky, abych mohl rozvrhový modul používat k plánování svých pracovních dní 
+
 Student
-- Jako student, chci být schopen si zobrazit mnou zapsané rozvrhové lístky pro daný semestr, protože potřebuji vidět, zda-li se některé nepřekrývají.
-- Jako student, chci být schopen si zobrazit předměty z mého studijního plánu, protože tyto předměty si budu primárně zapisovat.
-- Jako student, chci být schopen si zobrazit detail daného rozvrhového lístku, protože potřebuji vidět detaily ohledně času, vyučujícím a místa konání.
-- Jako student, chci být schopen se odepsat daný rozvrhový lístek, protože může kolidovat s jiným lístkem.
-- Jako student, chci být schopen si zobrazit všechny rozvrhové lístky pro daný předmět, protože mi to pomůže si vybrat ten, který mi nejvíce vyhovuje.
-- Jako student, chci být schopen si zobrazit povinné předměty pro mou specializaci, protože ty musím za své studium splnit.
-- Jako student, chci být schopen si zobrazit povinně volitelné předměty, protože z nich musím určitou část splnit.
-
-- zobrazit si předměty pro daný studijní program, semestr
-- zobrazit předmety z mé fakulty, z jiných fakult
-- zobrazit si rozvrhové lístky pro daný předmět a informace o nich(učebna, čas, učitel, ...)
-- zapsat se do rozvrhového lístku, odepsat se z něj
-- zobrazit zapsané rozvrhové lístky, kolize mezi nimi
-
-- chce mít možnost zapsat se na předmět
-
-- Coby student chci mít možnost prohlížet dostupné rozvrhové lístky a zapisovat si je, abych mohl řádně docházet na výuku
-- Coby student chci mít možnost upravovat si zápis rozvrhových lístků (přezapisovat, odhlašovat), abych si mohl v rámci možností sestavit rozvrh
-- Coby student chci mít možnost Zapsat si do rozvrhu k lístkům poznámky a vlastní virtuální lístky, abych mohl rozvrhový modul používat k plánování svých pracovních dní 
-
-- ako student si chcem vediet prezerat rozvrh konkretneho vyucujuceho aby som sa s nim vedel dohodnut na case konzultace
-- ako student si chcem vediet prezerat rozvrh konkretnej ucebne aby som videl predmety vyucovane v rovnakom arealy ako sa vtedy nachadzam
-- ako student chcem byt schopny zobrazit revizi zapisaneho rozvrhu aby som sa vyhol kolizim
-- ako student chcem byt schopny zapisovat predmety do kosika aby som si naplanoval vhodne rozvrh nez zacne zapis
-- ako student chcem byt schopny zobrazit informace o vsetkych zapsanych predmetoch za studium aby som mal prehlad o ne/splnenych predmetoch a poctu kreditov
-- ako student chcem byt schopny sa zapisat na cakaciu listinu listka aby som nemusel pravidelne kontrolovat ci sa uvolnila kapacita rozvrhoveho listka
-- ako student chcem byt schopny sa odpisat z cakacej listiny listku pretoze som sa rozhodol zmenit rozvrh a listok mi don uz nevyhovuje
+- Chci být schopen si zobrazit mnou zapsané rozvrhové lístky pro daný semestr, protože potřebuji vidět, zda-li se některé nepřekrývají
+- Chci být schopen si zobrazit předměty z mého studijního plánu, protože tyto předměty si budu primárně zapisovat
+- Chci být schopen si zobrazit detail daného rozvrhového lístku, protože potřebuji vidět detaily ohledně času, vyučujícím a místa konání
+- Chci být schopen si zobrazit všechny rozvrhové lístky pro daný předmět, protože mi to pomůže si vybrat ten, který mi nejvíce vyhovuje
+- Chci být schopen si zobrazit povinné předměty pro mou specializaci, protože ty musím za své studium splnit
+- Chci být schopen si zobrazit povinně volitelné předměty, protože z nich musím určitou část splnit
+- Chci být schopen zobrazit si všehny předmety z mé fakulty i z jiných fakult, protože i na ty mám možnost se zapsat.
+- Chci být schopen zapisovat si rozvrhové lístky, abych mohl řádně docházet na výuku
+- Chci být schopen upravovat si zápis rozvrhových lístků (přezapisovat, odhlašovat), abych si mohl v rámci možností sestavit rozvrh
+- Chci být schopen podívat se na rozvrh konkrétního učitele, abych se s ním mohl dohodnout na čase konzultace apod.
+- Chci být schopen podívat se na rozvrh konkrétní učebny či učeben z jednoho areálu, abych si případně mohl naplánovat výuku podle areálu, kde zrovna jsem
+- Chci být schopen zapisovat předměty do košíku, abych si mohl ideální rozvrh naplánovat před spuštěním zápisu
+- Chci být schopen zapsat se pro naplněný čekací lístek na čekací listinu, aby mě systém zapsal sám, pokud se kapacita uvolní, a já tak nemusel samostatně kontrolovat, zda se tak stalo
+- Chci být schopen zrušit svůj zápis v čekací listině, protože o lístek mohu přestat mít zájem
 
 Učitel
 - Jako učitel, chci být schopen si zobrazit mnou vyučované rozvrhové lístky pro daný semestr, protože si potřebuji podle toho naplánovat pracovní dobu.
@@ -63,6 +54,7 @@ Učitel
 - ako ucitel chcem byt schopny zobrazit zeznam studentu zapsanych na rozvrhovy listok aby som mohol poslat informace emailem
 - ako ucitel chcem byt schopny zobrazit rozvrh studenta aby som vedel dohodnut konzultaci/presunut paralelku na iny cas v mimoriadnych pripadoch
 - ako ucitel chcem byt schopny pridat studenta na rozvrhovy listok aby som pridal konkretneho studenta nad kapacitu po explicitnej dohode.
+- Vyučující má možnost odeslání emailu všem studentům konkrétního předmětu, který mu náleží
 
 Rozvrhový komisař
 - zobrazit předměty podle studijních programů
@@ -83,9 +75,6 @@ Správce budov
 
 - Coby správce budov chci mít možnost generovat a prohlížet reporty o stavu vytížení místností, protože to potřebuji k úkonům jako plánování úklidu či údržby apod.
 
-Uživatel s rozvrhem
-- ako student/ako ucitel chcem byt schopny ulozit moj rozvrh v roznych formatoch aby som ho mohol importovat do svojeho kalendara
-
 <br>
 
 ### System requirements
@@ -99,20 +88,20 @@ Uživatel s rozvrhem
 
 <br>
 
-#### Uživatel s rozvrhem
+Uživatel s rozvrhem  
 Je uživatel systému, který má nějaký svůj rozvrh, se kterým může chtít nějak nakládat.
 
-#### Student
+Student  
 Student je osoba zapsaná na univerzitě, která aktivně studuje. Tedy zapisuje se na určité rozvrhové lístky v daném semestru. Zapisuje si jak povinné, tak i povinně volitelné a volitelné předměty. Může si také zapsat předměty z jiné fakulty, než na které současně studuje.
 
-#### Učitel
+Učitel  
 Učitel je zaměstnanec univerzity, který se nějakým způsobem podílí na výuce. Má preference ohledně času, kdy může vyučovat. Také má preferenci ohledně toho, kolik rozvrhových lístků chce vyučovat.
 
-#### Rozvrhový komisař
+Rozvrhový komisař  
 Člen rozvrhové komise je zaměstnanec univerzity, jehož náplní práce je podílet se na tvorbě rozvrhů pro dané studijní plány, kontrola kolize mezi rozvrhovými lístky,
 vytváření rozvrhových lístků dle preference učitelů atd.
 
-#### Správce budov
+Správce budov  
 Správce budov je zaměstnanec univerzity, který má nějakým způsobem na starosti/zodpovědnosti techicko-údržbářské práce na jedné či více univerzitních budov. Zajišťuje úklid, servis zařízení, výdej klíčů apod. 
 
 <br>
@@ -162,10 +151,6 @@ Ked sa niekto odhlasi tak si zmenim rozvrhovy listok.
   - Student vyhledá předmět podle názvu, kódu, vyučujícího, ... a nebo ho nalezne na seznamu povinných předmětů pro jeho specializaci
   - Student si o rozvrhu zobrazí podrobnější informace
   - V případě, že se student rozhodne rozvrh změnit, je přesměrován na modul zápis
-
-#### Poslání zprávy svým studentům
-
-  - Vyučující má možnost odeslání emailu všem studentům konkrétního předmětu, který mu náleží
 
 #### Zobrazení statistického reportu
 
