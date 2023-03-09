@@ -35,26 +35,15 @@ Student
 - Chci být schopen zrušit svůj zápis v čekací listině, protože o lístek mohu přestat mít zájem
 
 Učitel
-- Jako učitel, chci být schopen si zobrazit mnou vyučované rozvrhové lístky pro daný semestr, protože si potřebuji podle toho naplánovat pracovní dobu.
-- Jako učitel, chci být schopen si zobrazit detail rozvrhového lístku, abych se mohl podívat například na místo konání.
-- Jako učitel, chci mít možnost modifikovat mnou vyučovaný rozvrhový lístek, protože někdy chci např. navýšit kapacitu.
-
-- zobrazit můj rozvrh
-- zobrazit informace o rozvrhovém lístku, který vyučuji
-- zobrazit informace o místnosti(kapacita, budova, ...)
-- zobrazit studenty zapsané na rozvrhovém lístku, který vyučuji
-- připsat studenta na můj rozvrhový lístek, odepsat ho z něj
-
-- chce zobrazit studenty přihlášené na předmět z mého rozvrhu
-- chce mít možnost zapsat studenta na svůj předmět
-- chce mít možnost posílat zprávy svým studentům
-
-- Coby učitel chci mít možnost zobrazit si rozvrhové lístky podle místnosti, abych mohl plánovat mimořádné schůzky, předtermínové zkoušky apod.
-
-- ako ucitel chcem byt schopny zobrazit zeznam studentu zapsanych na rozvrhovy listok aby som mohol poslat informace emailem
-- ako ucitel chcem byt schopny zobrazit rozvrh studenta aby som vedel dohodnut konzultaci/presunut paralelku na iny cas v mimoriadnych pripadoch
-- ako ucitel chcem byt schopny pridat studenta na rozvrhovy listok aby som pridal konkretneho studenta nad kapacitu po explicitnej dohode.
-- Vyučující má možnost odeslání emailu všem studentům konkrétního předmětu, který mu náleží
+- Chci být schopen si zobrazit mnou vyučované rozvrhové lístky pro daný semestr, protože si potřebuji podle toho naplánovat pracovní dobu.
+- Chci být schopen si zobrazit detail rozvrhového lístku, abych se mohl podívat například na místo konání.
+- Chci být schopen modifikovat mnou vyučovaný rozvrhový lístek, protože někdy chci např. navýšit kapacitu.
+- Chci být schopen zobrazit si informace o místnosti, ve které učím, abych mohl plánovat výuku
+- Chci být schopen zobrazit si studenty zapsané na rozvrhovém lístku, který vyučuji, abych podle toho případně mohl přizpůsobit výuku
+- Chci být schopen připsat studenta na svůj rozvrhový lístek či ho z něj odepsat, a to i mimo std dobu zápisu, abych mohl například reflektovat individuální dohody se studenty
+- Chci být schopen poslat hromadně zprávu včetně přílohy studentům ze svého rozvrhového lístku, abych jim mohl hromadně zasílat sdělení, změny, materiály z hodin apod.
+- Chci být schopen možnost zobrazit si rozvrhové lístky podle místností, abych mohl plánovat mimořádné schůzky, předtermínové zkoušky apod.
+- Chci být schopen zobrazit si rozvrh studenta, abych mohl dohodnut konzultaci/přesunout paralelku na jiný čas, pokud si to okolnosti vyžádají
 
 Rozvrhový komisař
 - zobrazit předměty podle studijních programů
