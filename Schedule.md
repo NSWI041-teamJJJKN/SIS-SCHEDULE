@@ -9,7 +9,31 @@ Tato sekce obsahuje funčkní požadavky.
 ### User requirements
 Jan J.
 {
+Student
+ - zobrazit si předměty pro daný studijní program, semestr
+ - zobrazit předmety z mé fakulty, z jiných fakult
+ - zobrazit si rozvrhové lístky pro daný předmět a informace o nich(učebna, čas, učitel, ...)
+ - zapsat se do rozvrhového lístku, odepsat se z něj
+ - zobrazit zapsané rozvrhové lístky, kolize mezi nimi
 
+Učitel
+ - zobrazit můj rozvrh
+ - zobrazit informace o rozvrhovém lístku, který vyučuji
+ - zobrazit informace o místnosti(kapacita, budova, ...)
+ - zobrazit studenty zapsané na rozvrhovém lístku, který vyučuji
+ - připsat studenta na můj rozvrhový lístek, odepsat ho z něj
+
+Člen rozvrhové komise
+ - zobrazit předměty podle studijních programů
+ - zobrazit místnosti a informace o nich
+ - zobrazit seznam učitelů pro daný předmět
+ - zobrazit seznam učitelů a místností, které jsou volné v určitý čas
+ - vytvořit/upravit/smazat rozvrhový lístek s daným dnem a časem, přiřadit k němu učitele, místnost, ...
+ - zobrazit rozvrh jednotlivých učitelů
+ - zobrazit rozvrhové lístky předmětu, info o nich
+
+Správa budov
+ - vytížnost jednotlivých učeben
 }
 
 Jan S. 
