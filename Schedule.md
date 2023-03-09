@@ -15,6 +15,63 @@ Jan J.
 Jan S. 
 {
 
+#### user requirements
+
+- Student
+  - chce mít možnost zapsat se na předmět
+
+- Učitel
+
+  - chce zobrazit studenty přihlášené na předmět z mého rozvrhu
+
+  - chce mít možnost zapsat studenta na svůj předmět
+
+  - chce mít možnost posílat zprávy svým studentům
+
+- Uživatelé obecně
+
+  - zobrazit počty studentů zapsaných na předmětu
+  - zobrazit si statistický report
+  - zobrazit si seznam předmětů a rozvrhových lístků
+
+#### system requirements
+
+- Student se může zapsat na předmět
+  - Počáteční stav
+    - Student je přihlášen ke svému účtu v systému
+  - Normální situace
+    - Student vyhledá předmět podle názvu, kódu, vyučujícího, ... a nebo ho nalezne na seznamu povinných předmětů pro jeho specializaci
+    - Student si o předmětu zobrazí podrobnější informace včetně jeho rozvrhových lístků
+    - Student po vybrání hlavního rozvrhového lístku (případně i sekundárního rozvrhového lístku pro cvičení) svůj výběr potvrdí
+  - Co se může pokazit
+    - Požadovaný předmět není v daný semestr vyučován
+    - Student nemá splněny prerekvizity
+    - Požadovaný předmět má plnou kapacitu
+
+- Jako student, chci být schopen si zobrazit mnou zapsané rozvrhové lístky pro daný semestr
+
+  - počáteční stav
+    - Student je přihlášen ke svému účtu v systému
+
+  - normální situace
+    - Student vyhledá předmět podle názvu, kódu, vyučujícího, ... a nebo ho nalezne na seznamu povinných předmětů pro jeho specializaci
+    - Student si o rozvrhu zobrazí podrobnější informace
+    - V případě, že se student rozhodne rozvrh změnit, je přesměrován na modul zápis
+
+- Jako učitel chci mít možnost posílat zprávy svým studentům
+
+  - Vyučující má možnost odeslání emailu všem studentům konkrétního předmětu, který mu náleží
+
+- Uživatel si chce zobrazit statistický report
+
+  - Počáteční stav
+    - Uživatel je připojen do systému bez jakýchkoli speciálních oprávnění
+  - Normální situace
+    - Uživatel si vyhledá předmět a vyžádá si od systému zobrazení podrobností
+    - Systém načte z databáze a zobrazí uživateli podrobnosti o předmětu které obsahují i statistický report
+  - Po dokončení
+    - Uživatel získá všechny informace ze statistického reportu předmětu
+
 }
 
 Jára
@@ -35,7 +92,8 @@ Jára
     - Jako člen rozvrhové komise, chci mít možnost modifikovat roizvrhové lístky, protože občas je potřeba změnit čas, vyučujícího, místo konání, kapacitu atd. 
 ---
 
-####Kryštof
+#### Kryštof
+
  - Coby správce budov chci mít možnost generovat a prohlížet reporty o stavu vytížení místností, protože to potřebuji k úkonům jako plánování úklidu či údržby apod.
  - Coby učitel chci mít možnost zobrazit si rozvrhové lístky podle místnosti, abych mohl plánovat mimořádné schůzky, předtermínové zkoušky apod.
  - Coby student chci mít možnost prohlížet dostupné rozvrhové lístky a zapisovat si je, abych mohl řádně docházet na výuku
@@ -58,6 +116,7 @@ Nicol
 Student je osoba zapsaná na univerzitě, která aktivně studuje. Tedy zapisuje se na určité rozvrhové lístky v daném semestru. Zapisuje si jak povinné, tak i povinně volitelné a volitelné předměty. Může si také zapsat předměty z jiné fakulty, než na které současně studuje.
 
 ##### Učitel
+
 Učitel je zaměstnanec univerzity, který se nějakým způsobem podílí na výuce. Má preference ohledně času, kdy může vyučovat. Také má preferenci ohledně toho, kolik rozvrhových lístků chce vyučovat.
 
 ##### Člen rozvrhové komise
