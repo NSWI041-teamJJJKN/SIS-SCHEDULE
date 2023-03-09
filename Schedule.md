@@ -46,22 +46,19 @@ Učitel
 - Chci být schopen zobrazit si rozvrh studenta, abych mohl dohodnut konzultaci/přesunout paralelku na jiný čas, pokud si to okolnosti vyžádají
 
 Rozvrhový komisař
-- zobrazit předměty podle studijních programů
-- zobrazit místnosti a informace o nich
-- zobrazit seznam učitelů pro daný předmět
-- zobrazit seznam učitelů a místností, které jsou volné v určitý čas
-- vytvořit/upravit/smazat rozvrhový lístek s daným dnem a časem, přiřadit k němu učitele, místnost, ...
-- zobrazit rozvrh jednotlivých učitelů
-- zobrazit rozvrhové lístky předmětu, info o nich
-
-- Jako člen rozvrhové komise, chci mít možnost vidět všechny rozvrhové lístky pro daného učitele, protože učitel může učit v jedné budově a přesun do jiné budovy trvá určitý čas.
-- Jako člen rozvrhové komise, chci mít možnost vidět rozvrhové lístky pro daný předmět, protože potřebují mít přehled o jejich rozložení.
-- Jako člen rozvrhové komise, chci mít možnost vidět všechny rozvrhové lístky pro všechny předměty doporučené pro daný ročník, protože musím zajistin, aby studenti mohli chodit na všechny předměty doporučeného plánu. 
-- Jako člen rozvrhové komise, chci mít možnost modifikovat roizvrhové lístky, protože občas je potřeba změnit čas, vyučujícího, místo konání, kapacitu atd. 
+- Chci být schopen zobrazit předměty podle studijních programů
+- Chci být schopen zobrazit místnosti a informace o nich
+- Chci být schopen zobrazit seznam učitelů pro daný předmět
+- Chci být schopen zobrazit seznam učitelů a místností, které jsou volné v určitý čas
+- Chci být schopen vytvořit/upravit/smazat rozvrhový lístek s daným dnem a časem, přiřadit k němu učitele, místnost a další patřičné detaily
+- Chci být schopen zobrazit rozvrh jednotlivých učitelů
+- Chci být schopen zobrazit rozvrhové lístky předmětu, info o nich
+- Chci být schopen zobrazit všechny rozvrhové lístky pro daného učitele, protože učitel může učit v jedné budově a přesun do jiné budovy trvá určitý čas.
+- Chci být schopen zobrazit rozvrhové lístky pro daný předmět, protože potřebují mít přehled o jejich rozložení.
+- Chci být schopen zobrazit všechny rozvrhové lístky pro všechny předměty doporučené pro daný ročník, protože musím zajistin, aby studenti mohli chodit na všechny předměty doporučeného plánu. 
+- Chci být schopen modifikovat rozvrhové lístky, protože občas je potřeba změnit čas, vyučujícího, místo konání, kapacitu atd. 
 
 Správce budov
-- vytížnost jednotlivých učeben
-
 - Coby správce budov chci mít možnost generovat a prohlížet reporty o stavu vytížení místností, protože to potřebuji k úkonům jako plánování úklidu či údržby apod.
 
 <br>
