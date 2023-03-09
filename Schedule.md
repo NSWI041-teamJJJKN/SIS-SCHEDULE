@@ -126,7 +126,17 @@ Jára
 
 Nicol
 {
-
+- ako student si chcem vediet prezerat rozvrh konkretneho vyucujuceho aby som sa s nim vedel dohodnut na case konzultace
+- ako student si chcem vediet prezerat rozvrh konkretnej ucebne aby som videl predmety vyucovane v rovnakom arealy ako sa vtedy nachadzam
+- ako student chcem byt schopny zobrazit revizi zapisaneho rozvrhu aby som sa vyhol kolizim
+- ako student chcem byt schopny zapisovat predmety do kosika aby som si naplanoval vhodne rozvrh nez zacne zapis
+- ako student chcem byt schopny zobrazit informace o vsetkych zapsanych predmetoch za studium aby som mal prehlad o ne/splnenych predmetoch a poctu kreditov
+- ako student chcem byt schopny sa zapisat na cakaciu listinu listka aby som nemusel pravidelne kontrolovat ci sa uvolnila kapacita rozvrhoveho listka
+- ako student chcem byt schopny sa odpisat z cakacej listiny listku pretoze som sa rozhodol zmenit rozvrh a listok mi don uz nevyhovuje
+- ako ucitel chcem byt schopny zobrazit zeznam studentu zapsanych na rozvrhovy listok aby som mohol poslat informace emailem
+- ako ucitel chcem byt schopny zobrazit rozvrh studenta aby som vedel dohodnut konzultaci/presunut paralelku na iny cas v mimoriadnych pripadoch
+- ako ucitel chcem byt schopny pridat studenta na rozvrhovy listok aby som pridal konkretneho studenta nad kapacitu po explicitnej dohode.
+- ako student/ako ucitel chcem byt schopny ulozit moj rozvrh v roznych formatoch aby som ho mohol importovat do svojeho kalendara
 }
 
 ### System requirements
@@ -176,6 +186,30 @@ Follow https://plantuml.com/
 [*Use case description in the structure from the lecture.*]
 
 [*Add an activity diagram for one use case per a team member*]
+
+Nicol
+{
+###### [*zapis na cakaciu listinu*]
+- Starting situation :
+Zacal sa zapis predmetov a nestihol som sa zapisat na rozvrhovy listok predmetu ktory som chcel pretoze sa rychlo naplnila kapacita.
+Ked sa niekto odhlasi tak si zmenim rozvrhovy listok.
+- Normal : 
+1) Zapisem sa na iny - volny rozvrhovy listok 
+2) posle sa poziadavok na ulozenie info o zapisanom studentovi pre dany listok
+2) otvorim rozvrhovy listok ktory som povodne planoval zapisat
+3) kliknem na zapisat na cakaciu listinu - posle sa poziadavok
+4) system si niekam ulozi (na spravne poradie) cloveka pre dany listok
+5) system mi pri zbrazeni informacii o rozvrhovom listku bude ukazovat aktualnu kapacitu| pocet ludi na cakacke | moje poradie na cakacke
+6) system dynamicky meni informacie z bodu 4) podla chovania studentov..
+7) system pravidelne zkontroluje zmeny v ulozenych datach a ak pocet ludi ulozenych pre dany listok je < nez kapacita a niekto je na cakacej listine tak ho preradi
+8) aktualizuju sa ulozene data a zobrazovane info na stranke
+9) odosle sa email studentovi ktory bol preradeni z cakacej listiny
+- What can go wrong:
+* clovek nieje zapisany na ziadny iny listok, v tom pripade ho upozornim aby sa zapisal na volny listok a neumoznim zapis na cakaciu listinu
+* clovek uz je zapisany na inej cakacej listine, vtedy ho odhlasim z povodnej cakacej listiny a prihlasim na novu 
+- System state on completion:
+Student je zapsany korektne na predmet - je zapsany na konkretny rozvrhovy listok a zaroven je priradeny na jedinu cakaciu listinu.
+}
 
 ## Information model
 
