@@ -1,0 +1,18 @@
+USER STORIES
+-> (sekce jakykoli uzivatel,rozvrhovy komisar) pridat dovod, preco to chce mat ten user 
+-> vyhladat/zobrazit zoznam (napis aby bolo jasne/USE CASE)
+
+ACTORS
+✔ clen komise/komisar ?
+✔ ucitel je aj nezamestnanec
+
+USE CASES
+-> kazdy 2
+-> nie v 1.osobe -konkretne kto(student robi ..)
+-> len co sa robi na UI
+-> nehovor nic o dizajne
+-> detailnejsie
+-> dodrzanie strukturi (CO sa stane ked sa nieco pokazi,koncovy stav)
+-> USE CASE DIAGRAM
+
+INFORMATIONAL MODEL

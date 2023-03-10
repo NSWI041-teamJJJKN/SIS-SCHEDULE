@@ -81,9 +81,9 @@ Student
 Student je osoba zapsaná na univerzitě, která aktivně studuje. Tedy zapisuje se na určité rozvrhové lístky v daném semestru. Zapisuje si jak povinné, tak i povinně volitelné a volitelné předměty. Může si také zapsat předměty z jiné fakulty, než na které současně studuje.
 
 Učitel  
-Učitel je zaměstnanec univerzity, který se nějakým způsobem podílí na výuce. Má preference ohledně času, kdy může vyučovat. Také má preferenci ohledně toho, kolik rozvrhových lístků chce vyučovat.
+Učitel je člověk, který se nějakým způsobem podílí na výuce na univerzitě. Má preference ohledně času, kdy může vyučovat. Také má preferenci ohledně toho, kolik rozvrhových lístků chce vyučovat.
 
-Rozvrhový komisař  
+Člen rozvrhové komise 
 Člen rozvrhové komise je zaměstnanec univerzity, jehož náplní práce je podílet se na tvorbě rozvrhů pro dané studijní plány, kontrola kolize mezi rozvrhovými lístky,
 vytváření rozvrhových lístků dle preference učitelů atd.
 
@@ -96,25 +96,37 @@ Správce budov je zaměstnanec univerzity, který má nějakým způsobem na sta
 
 #### Zápis na čekací listinu
 - Starting situation:
-Zacal sa zapis predmetov a nestihol som sa zapisat na rozvrhovy listok predmetu ktory som chcel pretoze sa rychlo naplnila kapacita.
-Ked sa niekto odhlasi tak si zmenim rozvrhovy listok.
+Zacal sa zapis predmetov a student sa nestihol zapisat na rozvrhovy listok predmetu, ktory chcel pretoze sa rychlo naplnila kapacita.
+Ked sa niekto odhlasi tak si student zmeni rozvrhovy listok.
 - Normal:
-  1) Zapisem sa na iny - volny rozvrhovy listok 
-  2) posle sa poziadavok na ulozenie info o zapisanom studentovi pre dany listok
-  2) otvorim rozvrhovy listok ktory som povodne planoval zapisat
-  3) kliknem na zapisat na cakaciu listinu - posle sa poziadavok
-  4) system si niekam ulozi (na spravne poradie) cloveka pre dany listok
-  5) system mi pri zbrazeni informacii o rozvrhovom listku bude ukazovat aktualnu kapacitu| pocet ludi na cakacke | moje poradie na cakacke
-  6) system dynamicky meni informacie z bodu 4) podla chovania studentov..
-  7) system pravidelne zkontroluje zmeny v ulozenych datach a ak pocet ludi ulozenych pre dany listok je < nez kapacita a niekto je na cakacej listine tak ho preradi
-  8) aktualizuju sa ulozene data a zobrazovane info na stranke
-  9) odosle sa email studentovi ktory bol preradeni z cakacej listiny
+  1) Student sa zapíše na iny - volny rozvrhovy listok 
+  2) Student otvori rozvrhovy listok ktory si povodne planoval zapisat
+  3) Student sa necha zapisat na cakaciu listinu
+  4) System bude ukazovat studentovi pri zbrazeni informacii o rozvrhovom listku aktualnu kapacitu | pocet ludi na cakacke | studentove poradie na cakacke
+  5) System dynamicky meni informacie z bodu 4) podla chovania studentov..
+  6) System pravidelne zkontroluje zmeny a ak pocet ludi na danom listku je < nez kapacita a nejaky student je na cakacej listine tak ho preradi
+  7) System aktualizuje zobrazovane info na stranke
+  8) System odosle email studentovi ktory bol preradeni z cakacej listiny
 - What can go wrong:
-  * clovek nieje zapisany na ziadny iny listok, v tom pripade ho upozornim aby sa zapisal na volny listok a neumoznim zapis na cakaciu listinu
-  * clovek uz je zapisany na inej cakacej listine, vtedy ho odhlasim z povodnej cakacej listiny a prihlasim na novu 
+  * student nie je zapisany na ziadny iny rozvrhovy listok, v tom pripade ho system upozorni aby sa zapisal na volny listok a neumozni mu zapis na cakaciu listinu
+  * student uz je zapisany na inej cakacej listine, vtedy ho system odhlasi z povodnej cakacej listiny a prihlasi na novu 
 - System state on completion:  
   Student je zapsany korektne na predmet - je zapsany na konkretny rozvrhovy listok a zaroven je priradeny na jedinu cakaciu listinu.
 
+#### připsání studenta na svůj rozvrhový lístek
+- Starting situation:
+Student opakuje predmet z minulého roka a preto sa dohodol s učitelom, ktorého mal že sa k nemu opätovne zapíše a bude mu uznaný zápočet ktorý už dosiahol predtým aby nemusel na cvičenie chodit.Rozvrhový lístek vyučujícího je plný, preto mu student napísal email aby bol pripísaný nad kapacitu rozvrhového lístka.
+- Normal:
+  1) Ucitel si otvori rozvrhovy listok
+  2) Ucitel vyhlada pozadovaneho studenta v systeme
+  3) Ucitel da nájdeného studenta zapísat na prislusny listok
+  4) System aktualizuje zobrazovanu informaciu o pocte prihlasenych studentov na rozvrhovy listok na stranke
+  5) System odosle email studentovi s informaciou ze bol zapisany na rozvrhovy listok
+- What can go wrong:
+  * student uz na rozvrhovy listok zapisany je(niekto sa stihol odhlasit a studenta), vtedy system ucitela informuje a nic dalsie nerobi
+  * student uz je zapisany na inom rozvrhovom listku, vtedy system studenta prehlasi na novy lístok
+- System state on completion:  
+  Student je zapisany na predmet na rozvrhovy listok u dohodnuteho vyucujuceho.
 
 #### Zápis na předmět
 - Počáteční stav
