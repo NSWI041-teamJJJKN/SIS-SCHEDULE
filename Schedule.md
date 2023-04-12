@@ -143,16 +143,16 @@ Student opakuje predmet z minulého roka a preto sa dohodol s učitelom, ktoréh
 #### Přidání předmětu do košíku
 
 - Počáteční stav
- - Student je přihlášen ke svému účtu v systému
- - Student je na stránce pro zobrazení předmětů
+  - Student je přihlášen ke svému účtu v systému
+  - Student je na stránce pro zobrazení předmětů
 - Normální situace
- - Student si vyhledá předmět
- - Student si zobrazí podrobnější informace o daném předmětu
- - Student si vybere rozvrhový lístek pro daný předmět a rozklikne ho
- - Student přidá daný rozvrhový lístek do košíku
+  - Student si vyhledá předmět
+  - Student si zobrazí podrobnější informace o daném předmětu
+  - Student si vybere rozvrhový lístek pro daný předmět a rozklikne ho
+  - Student přidá daný rozvrhový lístek do košíku
 - Co se může pokazit
- - Předmět není v daný semestr vyučován
- - Předmět nemá dosud vytvořené žádné rozvrhové lístky
+  - Předmět není v daný semestr vyučován
+  - Předmět nemá dosud vytvořené žádné rozvrhové lístky
 
 #### Zobrazit zapsaných rozvrhových lístků pro daný semestr
 
@@ -163,6 +163,17 @@ Student opakuje predmet z minulého roka a preto sa dohodol s učitelom, ktoréh
   - Student vyhledá předmět podle názvu, kódu, vyučujícího, ... a nebo ho nalezne na seznamu povinných předmětů pro jeho specializaci
   - Student si o rozvrhu zobrazí podrobnější informace
   - V případě, že se student rozhodne rozvrh změnit, je přesměrován na modul zápis
+
+#### Zobrazení rozvrhu konkrétního učitele
+
+- Počáteční stav
+  - Student je přihlášen ke svému účtu v systému
+  - Student je na stránce pro zobrazení učitelů
+- Normální stav
+  - Student vyhledá učitele
+  - Student si zobrazí podrobnější informace o učiteli
+  - Student si zobrazí rozvrh daného učitele
+- Co se může pokazit
 
 #### Zobrazení statistického reportu
 
