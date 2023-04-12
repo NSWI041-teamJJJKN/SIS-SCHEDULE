@@ -174,6 +174,32 @@ Student opakuje predmet z minulého roka a preto sa dohodol s učitelom, ktoréh
 - Po dokončení
   - Uživatel získá všechny informace ze statistického reportu předmětu
 
+#### Zobrazení seznamu předmětů a rozvrhových lístků
+
+- Počáteční stav
+  - Uživatel je připojen do systému bez jakýchkoli speciálních oprávnění
+- Normální situace
+  - Uživatel si chce vyhledat předmět a zobrazit jeho rozvrhový lístek
+  - Systém uživateli zobrazí vyhledávací formulář
+  - Uživatel vyplní formulář podle vlastních vyhledávacích kritérií
+  - Systém zobrazí seznam předmětů vyhovujících uživatelovým vyhledávacím kritériím
+  - Uživatel si u každého předmětu může zobrazit jeho aktuální rozvrhový lístek
+- Co se může pokazit
+  - Uživatel zadá neplatná kritéria, nebo kritéria kterým neodpovídá žadný předmět, v takovém případě systém uživatele upozorní a dá mu možnost opakovat vyplnění vyhledávacího formuláře
+- Po dokončení
+  - Uživatel získá všechny informace o vyhledávaném předmětu a jeho rozvrhovém lístku
+
+#### Modifikace kapacity (učitelem) vyučovaného rozvrhového lístku.
+
+- Počáteční stav
+  - Uživatel je přihlášen do systému
+- Normální situace
+  - Učitel chce vyhledat předmět a zobrazit jeho rozvrhový lístek
+  - Systém zobrazí seznam předmětů vyhovujících uživatelovým vyhledávacím kritériím
+  - Učitel má možnost navýšit kapacitu
+- Po dokončení
+  - Učitel změní kapacitu předmětu
+
 
 ## Information model
 
