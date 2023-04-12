@@ -140,6 +140,20 @@ Student opakuje predmet z minulého roka a preto sa dohodol s učitelom, ktoréh
   - Student nemá splněny prerekvizity
   - Požadovaný předmět má plnou kapacitu
 
+#### Přidání předmětu do košíku
+
+- Počáteční stav
+ - Student je přihlášen ke svému účtu v systému
+ - Student je na stránce pro zobrazení předmětů
+- Normální situace
+ - Student si vyhledá předmět
+ - Student si zobrazí podrobnější informace o daném předmětu
+ - Student si vybere rozvrhový lístek pro daný předmět a rozklikne ho
+ - Student přidá daný rozvrhový lístek do košíku
+- Co se může pokazit
+ - Předmět není v daný semestr vyučován
+ - Předmět nemá dosud vytvořené žádné rozvrhové lístky
+
 #### Zobrazit zapsaných rozvrhových lístků pro daný semestr
 
 - počáteční stav
