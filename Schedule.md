@@ -113,6 +113,31 @@ Ked sa niekto odhlasi tak si student zmeni rozvrhovy listok.
 - System state on completion:  
   Student je zapsany korektne na predmet - je zapsany na konkretny rozvrhovy listok a zaroven je priradeny na jedinu cakaciu listinu.
 
+```plantuml
+@startuml
+skinparam actorStyle awesome
+left to right direction
+
+actor Student as stud
+
+package moduleSchedule {
+usecase uc1 as "zápis na rozvrhovy lístok"
+usecase uc2 as "otvorenie rozvrhoveho listku"
+usecase uc3 as "zapis na cakaciu listinu"
+usecase uc4 as "preradenie z cakacej listiny na listok"
+usecase uc5 as "notifikace"
+}
+
+stud->uc1
+stud->uc2
+stud->uc3
+uc3<|--uc4 
+uc4<|--uc5
+uc1<|--uc5
+
+@enduml
+```
+
 #### připsání studenta na svůj rozvrhový lístek
 - Starting situation:
 Student opakuje predmet z minulého roka a preto sa dohodol s učitelom, ktorého mal že sa k nemu opätovne zapíše a bude mu uznaný zápočet ktorý už dosiahol predtým aby nemusel na cvičenie chodit.Rozvrhový lístek vyučujícího je plný, preto mu student napísal email aby bol pripísaný nad kapacitu rozvrhového lístka.
@@ -127,6 +152,32 @@ Student opakuje predmet z minulého roka a preto sa dohodol s učitelom, ktoréh
   * student uz je zapisany na inom rozvrhovom listku, vtedy system studenta prehlasi na novy lístok
 - System state on completion:  
   Student je zapisany na predmet na rozvrhovy listok u dohodnuteho vyucujuceho.
+
+```plantuml
+@startuml
+skinparam actorStyle awesome
+left to right direction
+
+actor Student as stud
+actor Ucitel as ucit
+
+package moduleSchedule {
+usecase uc1 as "vyhladaj predmet"
+usecase uc2 as "vyhladaj v datasete"
+usecase uc3 as "vyber rozvrhovy listok"
+usecase uc4 as "zapis na listok"
+usecase uc5 as "notify"
+}
+
+ucit->uc3
+ucit->uc4
+uc5<|--uc4 : <<extends>>
+uc5->stud
+uc1<|--uc3 : <<includes>>
+uc2<|--uc1 : <<includes>>
+uc3<|--uc4 : <<includes>>
+@enduml
+```
 
 #### Zápis na předmět
 - Počáteční stav
@@ -153,6 +204,29 @@ Student opakuje predmet z minulého roka a preto sa dohodol s učitelom, ktoréh
 - Co se může pokazit
   - Předmět není v daný semestr vyučován
   - Předmět nemá dosud vytvořené žádné rozvrhové lístky
+
+```plantuml
+@startuml
+skinparam actorStyle awesome
+left to right direction
+
+actor Student as stud
+
+package moduleSchedule {
+usecase uc1 as "vyhladaj predmet"
+usecase uc2 as "zobraz info o predmete"
+usecase uc3 as "vyber rozvrhovy listok"
+usecase uc4 as "pridaj predmet do kosika"
+
+}
+
+stud->uc2
+stud->uc3
+uc3<|--uc4 : <<extends>>
+uc1<|--uc3 : <<includes>>
+uc1<|--uc2 : <<includes>>
+@enduml
+```
 
 #### Zobrazit zapsaných rozvrhových lístků pro daný semestr
 
@@ -200,6 +274,38 @@ Student opakuje predmet z minulého roka a preto sa dohodol s učitelom, ktoréh
 - Po dokončení
   - Uživatel získá všechny informace o vyhledávaném předmětu a jeho rozvrhovém lístku
 
+```plantuml
+@startuml
+skinparam actorStyle awesome
+left to right direction
+
+package Uzivatel{
+actor Ucitel as ucit  
+actor Student as stud  
+actor "Rozvrhový komisař" as kom
+actor "Správce Budov" as spr
+}
+
+
+package moduleSchedule {
+usecase uc1 as "vyhladaj predmet"
+usecase uc2 as "vypln formular"
+usecase uc3 as "zobraz vyhladavaci formular"
+usecase uc4 as "zobraz zoznam predmetov"
+usecase uc5 as "zobraz zapisovy listok predmetu"
+usecase uc6 as "notify o chybe"
+}
+
+Uzivatel->uc1
+Uzivatel->uc4
+Uzivatel->uc5
+uc1<|--uc2 : <<extends>>
+uc2<|--uc3 : <<include>>
+uc4<|--uc3 : <<extends>>
+uc2<|--uc6 : <<extends>>
+@enduml
+```
+
 #### Modifikace kapacity (učitelem) vyučovaného rozvrhového lístku.
 
 - Počáteční stav
@@ -211,6 +317,27 @@ Student opakuje predmet z minulého roka a preto sa dohodol s učitelom, ktoréh
 - Po dokončení
   - Učitel změní kapacitu předmětu
 
+```plantuml
+@startuml
+skinparam actorStyle awesome
+left to right direction
+
+actor Ucitel as ucit
+
+package moduleSchedule {
+usecase uc1 as "vyhladaj predmet"
+usecase uc2 as "zobraz zoznam predmetov"
+usecase uc3 as "vyber rozvrhovy listok"
+usecase uc4 as "navys kapacitu listku"
+}
+
+ucit->uc1
+uc1<|--uc2 : <<extends>>
+ucit->uc4
+uc3<|--uc4 : <<includes>>
+
+@enduml
+```
 
 ## Information model
 
