@@ -10,9 +10,8 @@ Tato sekce obsahuje funčkní požadavky.
 ### User requirements
 
 Jakýkoli Uživatel
-- zobrazit počty studentů zapsaných na předmětu
-- zobrazit si statistický report
-- zobrazit si seznam předmětů a rozvrhových lístků
+- Chci být schopen zobrazit si statistický report, abych mohl zjistit, co se děje u mě na škole
+- Chci být schopen zobrazit si seznam předmětů a rozvrhových lístků, abych se mohl informovat, co se učí
 
 Uživatel s rozvrhem
 - Chci mít možnost exportovat si rozvrh v různých běžných formátech, abych si jej mohl importovat do svého kalendáře
@@ -83,8 +82,8 @@ Student je osoba zapsaná na univerzitě, která aktivně studuje. Tedy zapisuje
 Učitel  
 Učitel je člověk, který se nějakým způsobem podílí na výuce na univerzitě. Má preference ohledně času, kdy může vyučovat. Také má preferenci ohledně toho, kolik rozvrhových lístků chce vyučovat.
 
-Člen rozvrhové komise 
-Člen rozvrhové komise je zaměstnanec univerzity, jehož náplní práce je podílet se na tvorbě rozvrhů pro dané studijní plány, kontrola kolize mezi rozvrhovými lístky,
+Rozvrhový komisař
+Rozvrhový komisař je zaměstnanec univerzity, jehož náplní práce je podílet se na tvorbě rozvrhů pro dané studijní plány, kontrola kolize mezi rozvrhovými lístky,
 vytváření rozvrhových lístků dle preference učitelů atd.
 
 Správce budov  
@@ -92,7 +91,77 @@ Správce budov je zaměstnanec univerzity, který má nějakým způsobem na sta
 
 <br>
 
-### Use cases
+## Use cases
+
+### Use case diagram modulu SCHEDULE (neúplný)
+
+```plantuml
+@startuml
+left to right direction
+
+actor "Učitel" as ucit  
+actor Student as stud  
+actor "Rozvrhový komisař" as kom
+actor "Správce Budov" as spr
+
+package moduleSchedule {
+usecase uc1 as "zapiš se na rozvrhový lístek"
+usecase uc2 as "otevři rozvrhový lístek"
+usecase uc3 as "zapiš se na čekací listinu"
+usecase uc4 as "přeřaď z čekací listiny na lístek"
+usecase uc5 as "notifikuj"
+usecase uc6 as "vyhledej v datasetu"
+usecase uc7 as "vyber rozvrhový lístek"
+usecase uc8 as "zapiš studenta na lístek"
+usecase uc9 as "vyhledej předmět"
+usecase uc10 as "vyhledej místnost"
+usecase uc11 as "zobraz report o místnosti"
+usecase uc12 as "zobraz info o předmětu"
+usecase uc13 as "přidej předmět do košíku"
+usecase uc14 as "navyš kapacitu lístku"
+usecase uc15 as "zobraz seznam předmětů"
+usecase uc16 as "založ nový rozvrhový lístek"
+}
+
+stud-uc1
+stud-uc2
+stud-uc3
+stud-uc12
+stud-uc13
+stud-uc15
+
+ucit-uc8
+ucit-uc12
+ucit-uc14
+ucit-uc15
+
+kom-uc14
+kom-uc16
+
+spr-uc11
+
+uc3<-[dashed]-uc4 
+uc4<-[dashed]-uc5
+uc1<-[dashed]-uc5
+uc9<-[dashed]-uc7 : <<includes>>
+uc6<-[dashed]-uc10 : <<includes>>
+uc10<-[dashed]-uc11 : <<includes>>
+uc6<-[dashed]-uc9 : <<includes>>
+uc7<-[dashed]-uc8 : <<includes>>
+uc7<-[dashed]-uc2 : <<includes>>
+uc7<-[dashed]-uc13 : <<extends>>
+uc9<-[dashed]-uc7 : <<includes>>
+uc9<-[dashed]-uc12 : <<includes>>
+
+
+uc9<-[dashed]-uc15 : <<extends>>
+uc7<-[dashed]-uc14 : <<includes>>
+
+@enduml
+```
+
+
+### Rozepsané vybrané usecases 
 
 #### Zápis na čekací listinu
 - Starting situation:
@@ -113,30 +182,7 @@ Ked sa niekto odhlasi tak si student zmeni rozvrhovy listok.
 - System state on completion:  
   Student je zapsany korektne na predmet - je zapsany na konkretny rozvrhovy listok a zaroven je priradeny na jedinu cakaciu listinu.
 
-```plantuml
-@startuml
-skinparam actorStyle awesome
-left to right direction
 
-actor Student as stud
-
-package moduleSchedule {
-usecase uc1 as "zápis na rozvrhovy lístok"
-usecase uc2 as "otvorenie rozvrhoveho listku"
-usecase uc3 as "zapis na cakaciu listinu"
-usecase uc4 as "preradenie z cakacej listiny na listok"
-usecase uc5 as "notifikace"
-}
-
-stud->uc1
-stud->uc2
-stud->uc3
-uc3<|--uc4 
-uc4<|--uc5
-uc1<|--uc5
-
-@enduml
-```
 
 #### připsání studenta na svůj rozvrhový lístek
 - Starting situation:
@@ -153,31 +199,6 @@ Student opakuje predmet z minulého roka a preto sa dohodol s učitelom, ktoréh
 - System state on completion:  
   Student je zapisany na predmet na rozvrhovy listok u dohodnuteho vyucujuceho.
 
-```plantuml
-@startuml
-skinparam actorStyle awesome
-left to right direction
-
-actor Student as stud
-actor Ucitel as ucit
-
-package moduleSchedule {
-usecase uc1 as "vyhladaj predmet"
-usecase uc2 as "vyhladaj v datasete"
-usecase uc3 as "vyber rozvrhovy listok"
-usecase uc4 as "zapis na listok"
-usecase uc5 as "notify"
-}
-
-ucit->uc3
-ucit->uc4
-uc5<|--uc4 : <<extends>>
-uc5->stud
-uc1<|--uc3 : <<includes>>
-uc2<|--uc1 : <<includes>>
-uc3<|--uc4 : <<includes>>
-@enduml
-```
 
 #### Zápis na předmět
 - Počáteční stav
@@ -205,28 +226,7 @@ uc3<|--uc4 : <<includes>>
   - Předmět není v daný semestr vyučován
   - Předmět nemá dosud vytvořené žádné rozvrhové lístky
 
-```plantuml
-@startuml
-skinparam actorStyle awesome
-left to right direction
 
-actor Student as stud
-
-package moduleSchedule {
-usecase uc1 as "vyhladaj predmet"
-usecase uc2 as "zobraz info o predmete"
-usecase uc3 as "vyber rozvrhovy listok"
-usecase uc4 as "pridaj predmet do kosika"
-
-}
-
-stud->uc2
-stud->uc3
-uc3<|--uc4 : <<extends>>
-uc1<|--uc3 : <<includes>>
-uc1<|--uc2 : <<includes>>
-@enduml
-```
 
 #### Zobrazit zapsaných rozvrhových lístků pro daný semestr
 
@@ -274,37 +274,7 @@ uc1<|--uc2 : <<includes>>
 - Po dokončení
   - Uživatel získá všechny informace o vyhledávaném předmětu a jeho rozvrhovém lístku
 
-```plantuml
-@startuml
-skinparam actorStyle awesome
-left to right direction
 
-package Uzivatel{
-actor Ucitel as ucit  
-actor Student as stud  
-actor "Rozvrhový komisař" as kom
-actor "Správce Budov" as spr
-}
-
-
-package moduleSchedule {
-usecase uc1 as "vyhladaj predmet"
-usecase uc2 as "vypln formular"
-usecase uc3 as "zobraz vyhladavaci formular"
-usecase uc4 as "zobraz zoznam predmetov"
-usecase uc5 as "zobraz zapisovy listok predmetu"
-usecase uc6 as "notify o chybe"
-}
-
-Uzivatel->uc1
-Uzivatel->uc4
-Uzivatel->uc5
-uc1<|--uc2 : <<extends>>
-uc2<|--uc3 : <<include>>
-uc4<|--uc3 : <<extends>>
-uc2<|--uc6 : <<extends>>
-@enduml
-```
 
 #### Modifikace kapacity (učitelem) vyučovaného rozvrhového lístku.
 
@@ -317,27 +287,41 @@ uc2<|--uc6 : <<extends>>
 - Po dokončení
   - Učitel změní kapacitu předmětu
 
-```plantuml
-@startuml
-skinparam actorStyle awesome
-left to right direction
 
-actor Ucitel as ucit
 
-package moduleSchedule {
-usecase uc1 as "vyhladaj predmet"
-usecase uc2 as "zobraz zoznam predmetov"
-usecase uc3 as "vyber rozvrhovy listok"
-usecase uc4 as "navys kapacitu listku"
-}
+#### Vytvoření/úprava rozvrhového lístku
+- Počáteční stav
+  - Rozvrhový komisař je přihlášen ke svému účtu v systému
+  - Komisař má rozmyšleno, jaký lístek bude vytvářet/upravovat
+- Normální situace
+  - A) tvorba lístku
+    - Komisař zvolí možnost vytvořit lístek
+    - Systém vygeneruje kód pro nový lístek
+    - Systém vygeneruje a zobrazí komisaři prázdný formulář
+  - B) úprava lístku
+    - Komisař vyhledá lístek (s možnostmi)
+      1. Přímo lístek dle kódu
+      2. Vyhledá předmět, vyučujícího či místnost a zobrazí dostupné lístky pro danou entitu
+    - Systém vygeneruje a zobrazí komisaři formulář, který má předvyplněné existující údaje z lístku
+  - Komisař vyplní údaje o lístku
+  - Komisař potvrdí editaci a tak uloží lístek zpět do systému
+- Co se může pokazit
+  - Některé údaje mohou kolidovat s jinými lístky
+  - Některé údaje mohou kolidovat s požadvky předmětu či učitele
+- Po dokončení
+  - Rozvrhový lístek je zapsán v systému
 
-ucit->uc1
-uc1<|--uc2 : <<extends>>
-ucit->uc4
-uc3<|--uc4 : <<includes>>
 
-@enduml
-```
+#### Zobrazení mnou vyučovaných rozvrhových lístků pro daný semestr
+- Počáteční stav
+  - Učitel je přihlášen ke svému účtu v systému
+- Normální situace
+  - Učitel zvolí možnost "zobrazit moje lístky"
+  - Systém vygeneruje seznam lístků, u nichž je jako učitel tento zapsán
+  - Systém umožní zobrazit seznam těchto lístků
+  - Systém umožní zobrazit lístky v rozvrhové tabulce 
+- Co se může pokazit
+  - Učitel nemá v tomto semestru přiděleny žádné lístky
 
 ## Information model
 
