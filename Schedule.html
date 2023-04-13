@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Schedule.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="student-information-system---schedule">Student information system - SCHEDULE</h1>
+<p>Modul rozvrhy slouží k vytváření a prohlížení rozvrhů. V rámci modulu jsou vedeny předměty a jejich příslušnost do studijních programů a jednotlivých semestrů studia, ve kterých jsou v rámci programu doporučeny. Dále jsou v rámci modulu vedeny učebny pro výuku a jejich kapacita. Pro každý předmět jsou evidovány rozvrhové lístky přednášek a cvičení, včetně jejich kapacit a vyučujících. Modul umožňuje rozvrhové komisi v jednotlivých semestrech vytváření centrálních rozvrhů přiřazováním rozvrhových lístků k učebnám na konkrétní den v týdnu a hodinu. Předměty ve stejném studijním programu a semestru musí být rozvrhovány tak, aby měli studenti v daném studijním programu a semestru možnost tyto předměty navštěvovat. Dále nesmí docházet k časovým kolizím jednoho učitele. Modul umožňuje vytvářet statistické reporty o vytíženosti místností v jednotlivých semestrech.<br>
+<br></p>
+<h2 id="functional-requirements">Functional Requirements</h2>
+<p>Tato sekce obsahuje funčkní požadavky.
+<br></p>
+<h3 id="user-requirements">User requirements</h3>
+<p>Jakýkoli Uživatel</p>
+<ul>
+<li>Chci být schopen zobrazit si statistický report, abych mohl zjistit, co se děje u mě na škole</li>
+<li>Chci být schopen zobrazit si seznam předmětů a rozvrhových lístků, abych se mohl informovat, co se učí</li>
+</ul>
+<p>Uživatel s rozvrhem</p>
+<ul>
+<li>Chci mít možnost exportovat si rozvrh v různých běžných formátech, abych si jej mohl importovat do svého kalendáře</li>
+<li>Chci být schopen zapsat si do rozvrhu k lístkům poznámky a vlastní virtuální lístky, abych mohl rozvrhový modul používat k plánování svých pracovních dní</li>
+</ul>
+<p>Student</p>
+<ul>
+<li>Chci být schopen si zobrazit mnou zapsané rozvrhové lístky pro daný semestr, protože potřebuji vidět, zda-li se některé nepřekrývají</li>
+<li>Chci být schopen si zobrazit předměty z mého studijního plánu, protože tyto předměty si budu primárně zapisovat</li>
+<li>Chci být schopen si zobrazit detail daného rozvrhového lístku, protože potřebuji vidět detaily ohledně času, vyučujícím a místa konání</li>
+<li>Chci být schopen si zobrazit všechny rozvrhové lístky pro daný předmět, protože mi to pomůže si vybrat ten, který mi nejvíce vyhovuje</li>
+<li>Chci být schopen si zobrazit povinné předměty pro mou specializaci, protože ty musím za své studium splnit</li>
+<li>Chci být schopen si zobrazit povinně volitelné předměty, protože z nich musím určitou část splnit</li>
+<li>Chci být schopen zobrazit si všehny předmety z mé fakulty i z jiných fakult, protože i na ty mám možnost se zapsat.</li>
+<li>Chci být schopen zapisovat si rozvrhové lístky, abych mohl řádně docházet na výuku</li>
+<li>Chci být schopen upravovat si zápis rozvrhových lístků (přezapisovat, odhlašovat), abych si mohl v rámci možností sestavit rozvrh</li>
+<li>Chci být schopen podívat se na rozvrh konkrétního učitele, abych se s ním mohl dohodnout na čase konzultace apod.</li>
+<li>Chci být schopen podívat se na rozvrh konkrétní učebny či učeben z jednoho areálu, abych si případně mohl naplánovat výuku podle areálu, kde zrovna jsem</li>
+<li>Chci být schopen zapisovat předměty do košíku, abych si mohl ideální rozvrh naplánovat před spuštěním zápisu</li>
+<li>Chci být schopen zapsat se pro naplněný čekací lístek na čekací listinu, aby mě systém zapsal sám, pokud se kapacita uvolní, a já tak nemusel samostatně kontrolovat, zda se tak stalo</li>
+<li>Chci být schopen zrušit svůj zápis v čekací listině, protože o lístek mohu přestat mít zájem</li>
+</ul>
+<p>Učitel</p>
+<ul>
+<li>Chci být schopen si zobrazit mnou vyučované rozvrhové lístky pro daný semestr, protože si potřebuji podle toho naplánovat pracovní dobu.</li>
+<li>Chci být schopen si zobrazit detail rozvrhového lístku, abych se mohl podívat například na místo konání.</li>
+<li>Chci být schopen modifikovat mnou vyučovaný rozvrhový lístek, protože někdy chci např. navýšit kapacitu.</li>
+<li>Chci být schopen zobrazit si informace o místnosti, ve které učím, abych mohl plánovat výuku</li>
+<li>Chci být schopen zobrazit si studenty zapsané na rozvrhovém lístku, který vyučuji, abych podle toho případně mohl přizpůsobit výuku</li>
+<li>Chci být schopen připsat studenta na svůj rozvrhový lístek či ho z něj odepsat, a to i mimo std dobu zápisu, abych mohl například reflektovat individuální dohody se studenty</li>
+<li>Chci být schopen poslat hromadně zprávu včetně přílohy studentům ze svého rozvrhového lístku, abych jim mohl hromadně zasílat sdělení, změny, materiály z hodin apod.</li>
+<li>Chci být schopen možnost zobrazit si rozvrhové lístky podle místností, abych mohl plánovat mimořádné schůzky, předtermínové zkoušky apod.</li>
+<li>Chci být schopen zobrazit si rozvrh studenta, abych mohl dohodnut konzultaci/přesunout paralelku na jiný čas, pokud si to okolnosti vyžádají</li>
+</ul>
+<p>Rozvrhový komisař</p>
+<ul>
+<li>Chci být schopen zobrazit předměty podle studijních programů</li>
+<li>Chci být schopen zobrazit místnosti a informace o nich</li>
+<li>Chci být schopen zobrazit seznam učitelů pro daný předmět</li>
+<li>Chci být schopen zobrazit seznam učitelů a místností, které jsou volné v určitý čas</li>
+<li>Chci být schopen vytvořit/upravit/smazat rozvrhový lístek s daným dnem a časem, přiřadit k němu učitele, místnost a další patřičné detaily</li>
+<li>Chci být schopen zobrazit rozvrh jednotlivých učitelů</li>
+<li>Chci být schopen zobrazit rozvrhové lístky předmětu, info o nich</li>
+<li>Chci být schopen zobrazit všechny rozvrhové lístky pro daného učitele, protože učitel může učit v jedné budově a přesun do jiné budovy trvá určitý čas.</li>
+<li>Chci být schopen zobrazit rozvrhové lístky pro daný předmět, protože potřebují mít přehled o jejich rozložení.</li>
+<li>Chci být schopen zobrazit všechny rozvrhové lístky pro všechny předměty doporučené pro daný ročník, protože musím zajistin, aby studenti mohli chodit na všechny předměty doporučeného plánu.</li>
+<li>Chci být schopen modifikovat rozvrhové lístky, protože občas je potřeba změnit čas, vyučujícího, místo konání, kapacitu atd.</li>
+</ul>
+<p>Správce budov</p>
+<ul>
+<li>Coby správce budov chci mít možnost generovat a prohlížet reporty o stavu vytížení místností, protože to potřebuji k úkonům jako plánování úklidu či údržby apod.</li>
+</ul>
+<br>
+<h3 id="system-requirements">System requirements</h3>
+<h4 id="actor-list">Actor list</h4>
+<ul>
+<li>Uživatel s rozvrhem
+<ul>
+<li>Student</li>
+<li>Učitel</li>
+</ul>
+</li>
+<li>Rozvrhový komisař</li>
+<li>Správce budov</li>
+</ul>
+<br>
+<p>Uživatel s rozvrhem<br>
+Je uživatel systému, který má nějaký svůj rozvrh, se kterým může chtít nějak nakládat.</p>
+<p>Student<br>
+Student je osoba zapsaná na univerzitě, která aktivně studuje. Tedy zapisuje se na určité rozvrhové lístky v daném semestru. Zapisuje si jak povinné, tak i povinně volitelné a volitelné předměty. Může si také zapsat předměty z jiné fakulty, než na které současně studuje.</p>
+<p>Učitel<br>
+Učitel je člověk, který se nějakým způsobem podílí na výuce na univerzitě. Má preference ohledně času, kdy může vyučovat. Také má preferenci ohledně toho, kolik rozvrhových lístků chce vyučovat.</p>
+<p>Rozvrhový komisař
+Rozvrhový komisař je zaměstnanec univerzity, jehož náplní práce je podílet se na tvorbě rozvrhů pro dané studijní plány, kontrola kolize mezi rozvrhovými lístky,
+vytváření rozvrhových lístků dle preference učitelů atd.</p>
+<p>Správce budov<br>
+Správce budov je zaměstnanec univerzity, který má nějakým způsobem na starosti/zodpovědnosti techicko-údržbářské práce na jedné či více univerzitních budov. Zajišťuje úklid, servis zařízení, výdej klíčů apod.</p>
+<br>
+<h2 id="use-cases">Use cases</h2>
+<h3 id="use-case-diagram-modulu-schedule-ne%C3%BApln%C3%BD">Use case diagram modulu SCHEDULE (neúplný)</h3>
+<pre class="hljs"><code><div>@startuml
+left to right direction
+
+actor &quot;Učitel&quot; as ucit  
+actor Student as stud  
+actor &quot;Rozvrhový komisař&quot; as kom
+actor &quot;Správce Budov&quot; as spr
+
+package moduleSchedule {
+usecase uc1 as &quot;zapiš se na rozvrhový lístek&quot;
+usecase uc2 as &quot;otevři rozvrhový lístek&quot;
+usecase uc3 as &quot;zapiš se na čekací listinu&quot;
+usecase uc4 as &quot;přeřaď z čekací listiny na lístek&quot;
+usecase uc5 as &quot;notifikuj&quot;
+usecase uc6 as &quot;vyhledej v datasetu&quot;
+usecase uc7 as &quot;vyber rozvrhový lístek&quot;
+usecase uc8 as &quot;zapiš studenta na lístek&quot;
+usecase uc9 as &quot;vyhledej předmět&quot;
+usecase uc10 as &quot;vyhledej místnost&quot;
+usecase uc11 as &quot;zobraz report o místnosti&quot;
+usecase uc12 as &quot;zobraz info o předmětu&quot;
+usecase uc13 as &quot;přidej předmět do košíku&quot;
+usecase uc14 as &quot;navyš kapacitu lístku&quot;
+usecase uc15 as &quot;zobraz seznam předmětů&quot;
+usecase uc16 as &quot;založ nový rozvrhový lístek&quot;
+}
+
+stud-uc1
+stud-uc2
+stud-uc3
+stud-uc12
+stud-uc13
+stud-uc15
+
+ucit-uc8
+ucit-uc12
+ucit-uc14
+ucit-uc15
+
+kom-uc14
+kom-uc16
+
+spr-uc11
+
+uc3&lt;-[dashed]-uc4 
+uc4&lt;-[dashed]-uc5
+uc1&lt;-[dashed]-uc5
+uc9&lt;-[dashed]-uc7 : &lt;&lt;includes&gt;&gt;
+uc6&lt;-[dashed]-uc10 : &lt;&lt;includes&gt;&gt;
+uc10&lt;-[dashed]-uc11 : &lt;&lt;includes&gt;&gt;
+uc6&lt;-[dashed]-uc9 : &lt;&lt;includes&gt;&gt;
+uc7&lt;-[dashed]-uc8 : &lt;&lt;includes&gt;&gt;
+uc7&lt;-[dashed]-uc2 : &lt;&lt;includes&gt;&gt;
+uc7&lt;-[dashed]-uc13 : &lt;&lt;extends&gt;&gt;
+uc9&lt;-[dashed]-uc7 : &lt;&lt;includes&gt;&gt;
+uc9&lt;-[dashed]-uc12 : &lt;&lt;includes&gt;&gt;
+
+
+uc9&lt;-[dashed]-uc15 : &lt;&lt;extends&gt;&gt;
+uc7&lt;-[dashed]-uc14 : &lt;&lt;includes&gt;&gt;
+
+@enduml
+</div></code></pre>
+<h3 id="rozepsan%C3%A9-vybran%C3%A9-usecases">Rozepsané vybrané usecases</h3>
+<h4 id="z%C3%A1pis-na-%C4%8Dekac%C3%AD-listinu">Zápis na čekací listinu</h4>
+<ul>
+<li>Starting situation:
+Zacal sa zapis predmetov a student sa nestihol zapisat na rozvrhovy listok predmetu, ktory chcel pretoze sa rychlo naplnila kapacita.
+Ked sa niekto odhlasi tak si student zmeni rozvrhovy listok.</li>
+<li>Normal:
+<ol>
+<li>Student sa zapíše na iny - volny rozvrhovy listok</li>
+<li>Student otvori rozvrhovy listok ktory si povodne planoval zapisat</li>
+<li>Student sa necha zapisat na cakaciu listinu</li>
+<li>System bude ukazovat studentovi pri zbrazeni informacii o rozvrhovom listku aktualnu kapacitu | pocet ludi na cakacke | studentove poradie na cakacke</li>
+<li>System dynamicky meni informacie z bodu 4) podla chovania studentov..</li>
+<li>System pravidelne zkontroluje zmeny a ak pocet ludi na danom listku je &lt; nez kapacita a nejaky student je na cakacej listine tak ho preradi</li>
+<li>System aktualizuje zobrazovane info na stranke</li>
+<li>System odosle email studentovi ktory bol preradeni z cakacej listiny</li>
+</ol>
+</li>
+<li>What can go wrong:
+<ul>
+<li>student nie je zapisany na ziadny iny rozvrhovy listok, v tom pripade ho system upozorni aby sa zapisal na volny listok a neumozni mu zapis na cakaciu listinu</li>
+<li>student uz je zapisany na inej cakacej listine, vtedy ho system odhlasi z povodnej cakacej listiny a prihlasi na novu</li>
+</ul>
+</li>
+<li>System state on completion:<br>
+Student je zapsany korektne na predmet - je zapsany na konkretny rozvrhovy listok a zaroven je priradeny na jedinu cakaciu listinu.</li>
+</ul>
+<h4 id="p%C5%99ips%C3%A1n%C3%AD-studenta-na-sv%C5%AFj-rozvrhov%C3%BD-l%C3%ADstek">připsání studenta na svůj rozvrhový lístek</h4>
+<ul>
+<li>Starting situation:
+Student opakuje predmet z minulého roka a preto sa dohodol s učitelom, ktorého mal že sa k nemu opätovne zapíše a bude mu uznaný zápočet ktorý už dosiahol predtým aby nemusel na cvičenie chodit.Rozvrhový lístek vyučujícího je plný, preto mu student napísal email aby bol pripísaný nad kapacitu rozvrhového lístka.</li>
+<li>Normal:
+<ol>
+<li>Ucitel si otvori rozvrhovy listok</li>
+<li>Ucitel vyhlada pozadovaneho studenta v systeme</li>
+<li>Ucitel da nájdeného studenta zapísat na prislusny listok</li>
+<li>System aktualizuje zobrazovanu informaciu o pocte prihlasenych studentov na rozvrhovy listok na stranke</li>
+<li>System odosle email studentovi s informaciou ze bol zapisany na rozvrhovy listok</li>
+</ol>
+</li>
+<li>What can go wrong:
+<ul>
+<li>student uz na rozvrhovy listok zapisany je(niekto sa stihol odhlasit a studenta), vtedy system ucitela informuje a nic dalsie nerobi</li>
+<li>student uz je zapisany na inom rozvrhovom listku, vtedy system studenta prehlasi na novy lístok</li>
+</ul>
+</li>
+<li>System state on completion:<br>
+Student je zapisany na predmet na rozvrhovy listok u dohodnuteho vyucujuceho.</li>
+</ul>
+<h4 id="z%C3%A1pis-na-p%C5%99edm%C4%9Bt">Zápis na předmět</h4>
+<ul>
+<li>Počáteční stav
+<ul>
+<li>Student je přihlášen ke svému účtu v systému</li>
+</ul>
+</li>
+<li>Normální situace
+<ul>
+<li>Student vyhledá předmět podle názvu, kódu, vyučujícího, ... a nebo ho nalezne na seznamu povinných předmětů pro jeho specializaci</li>
+<li>Student si o předmětu zobrazí podrobnější informace včetně jeho rozvrhových lístků</li>
+<li>Student po vybrání hlavního rozvrhového lístku (případně i sekundárního rozvrhového lístku pro cvičení) svůj výběr potvrdí</li>
+</ul>
+</li>
+<li>Co se může pokazit
+<ul>
+<li>Požadovaný předmět není v daný semestr vyučován</li>
+<li>Student nemá splněny prerekvizity</li>
+<li>Požadovaný předmět má plnou kapacitu</li>
+</ul>
+</li>
+</ul>
+<h4 id="p%C5%99id%C3%A1n%C3%AD-p%C5%99edm%C4%9Btu-do-ko%C5%A1%C3%ADku">Přidání předmětu do košíku</h4>
+<ul>
+<li>Počáteční stav
+<ul>
+<li>Student je přihlášen ke svému účtu v systému</li>
+<li>Student je na stránce pro zobrazení předmětů</li>
+</ul>
+</li>
+<li>Normální situace
+<ul>
+<li>Student si vyhledá předmět</li>
+<li>Student si zobrazí podrobnější informace o daném předmětu</li>
+<li>Student si vybere rozvrhový lístek pro daný předmět a rozklikne ho</li>
+<li>Student přidá daný rozvrhový lístek do košíku</li>
+</ul>
+</li>
+<li>Co se může pokazit
+<ul>
+<li>Předmět není v daný semestr vyučován</li>
+<li>Předmět nemá dosud vytvořené žádné rozvrhové lístky</li>
+</ul>
+</li>
+</ul>
+<h4 id="zobrazit-zapsan%C3%BDch-rozvrhov%C3%BDch-l%C3%ADstk%C5%AF-pro-dan%C3%BD-semestr">Zobrazit zapsaných rozvrhových lístků pro daný semestr</h4>
+<ul>
+<li>
+<p>počáteční stav</p>
+<ul>
+<li>Student je přihlášen ke svému účtu v systému</li>
+</ul>
+</li>
+<li>
+<p>normální situace</p>
+<ul>
+<li>Student vyhledá předmět podle názvu, kódu, vyučujícího, ... a nebo ho nalezne na seznamu povinných předmětů pro jeho specializaci</li>
+<li>Student si o rozvrhu zobrazí podrobnější informace</li>
+<li>V případě, že se student rozhodne rozvrh změnit, je přesměrován na modul zápis</li>
+</ul>
+</li>
+</ul>
+<h4 id="zobrazen%C3%AD-rozvrhu-konkr%C3%A9tn%C3%ADho-u%C4%8Ditele">Zobrazení rozvrhu konkrétního učitele</h4>
+<ul>
+<li>Počáteční stav
+<ul>
+<li>Student je přihlášen ke svému účtu v systému</li>
+<li>Student je na stránce pro zobrazení učitelů</li>
+</ul>
+</li>
+<li>Normální stav
+<ul>
+<li>Student vyhledá učitele</li>
+<li>Student si zobrazí podrobnější informace o učiteli</li>
+<li>Student si zobrazí rozvrh daného učitele</li>
+</ul>
+</li>
+<li>Co se může pokazit</li>
+</ul>
+<h4 id="zobrazen%C3%AD-statistick%C3%A9ho-reportu">Zobrazení statistického reportu</h4>
+<ul>
+<li>Počáteční stav
+<ul>
+<li>Uživatel je připojen do systému bez jakýchkoli speciálních oprávnění</li>
+</ul>
+</li>
+<li>Normální situace
+<ul>
+<li>Uživatel si vyhledá předmět a vyžádá si od systému zobrazení podrobností</li>
+<li>Systém načte z databáze a zobrazí uživateli podrobnosti o předmětu které obsahují i statistický report</li>
+</ul>
+</li>
+<li>Po dokončení
+<ul>
+<li>Uživatel získá všechny informace ze statistického reportu předmětu</li>
+</ul>
+</li>
+</ul>
+<h4 id="zobrazen%C3%AD-seznamu-p%C5%99edm%C4%9Bt%C5%AF-a-rozvrhov%C3%BDch-l%C3%ADstk%C5%AF">Zobrazení seznamu předmětů a rozvrhových lístků</h4>
+<ul>
+<li>Počáteční stav
+<ul>
+<li>Uživatel je připojen do systému bez jakýchkoli speciálních oprávnění</li>
+</ul>
+</li>
+<li>Normální situace
+<ul>
+<li>Uživatel si chce vyhledat předmět a zobrazit jeho rozvrhový lístek</li>
+<li>Systém uživateli zobrazí vyhledávací formulář</li>
+<li>Uživatel vyplní formulář podle vlastních vyhledávacích kritérií</li>
+<li>Systém zobrazí seznam předmětů vyhovujících uživatelovým vyhledávacím kritériím</li>
+<li>Uživatel si u každého předmětu může zobrazit jeho aktuální rozvrhový lístek</li>
+</ul>
+</li>
+<li>Co se může pokazit
+<ul>
+<li>Uživatel zadá neplatná kritéria, nebo kritéria kterým neodpovídá žadný předmět, v takovém případě systém uživatele upozorní a dá mu možnost opakovat vyplnění vyhledávacího formuláře</li>
+</ul>
+</li>
+<li>Po dokončení
+<ul>
+<li>Uživatel získá všechny informace o vyhledávaném předmětu a jeho rozvrhovém lístku</li>
+</ul>
+</li>
+</ul>
+<h4 id="modifikace-kapacity-u%C4%8Ditelem-vyu%C4%8Dovan%C3%A9ho-rozvrhov%C3%A9ho-l%C3%ADstku">Modifikace kapacity (učitelem) vyučovaného rozvrhového lístku.</h4>
+<ul>
+<li>Počáteční stav
+<ul>
+<li>Uživatel je přihlášen do systému</li>
+</ul>
+</li>
+<li>Normální situace
+<ul>
+<li>Učitel chce vyhledat předmět a zobrazit jeho rozvrhový lístek</li>
+<li>Systém zobrazí seznam předmětů vyhovujících uživatelovým vyhledávacím kritériím</li>
+<li>Učitel má možnost navýšit kapacitu</li>
+</ul>
+</li>
+<li>Po dokončení
+<ul>
+<li>Učitel změní kapacitu předmětu</li>
+</ul>
+</li>
+</ul>
+<h4 id="vytvo%C5%99en%C3%AD%C3%BAprava-rozvrhov%C3%A9ho-l%C3%ADstku">Vytvoření/úprava rozvrhového lístku</h4>
+<ul>
+<li>Počáteční stav
+<ul>
+<li>Rozvrhový komisař je přihlášen ke svému účtu v systému</li>
+<li>Komisař má rozmyšleno, jaký lístek bude vytvářet/upravovat</li>
+</ul>
+</li>
+<li>Normální situace
+<ul>
+<li>A) tvorba lístku
+<ul>
+<li>Komisař zvolí možnost vytvořit lístek</li>
+<li>Systém vygeneruje kód pro nový lístek</li>
+<li>Systém vygeneruje a zobrazí komisaři prázdný formulář</li>
+</ul>
+</li>
+<li>B) úprava lístku
+<ul>
+<li>Komisař vyhledá lístek (s možnostmi)
+<ol>
+<li>Přímo lístek dle kódu</li>
+<li>Vyhledá předmět, vyučujícího či místnost a zobrazí dostupné lístky pro danou entitu</li>
+</ol>
+</li>
+<li>Systém vygeneruje a zobrazí komisaři formulář, který má předvyplněné existující údaje z lístku</li>
+</ul>
+</li>
+<li>Komisař vyplní údaje o lístku</li>
+<li>Komisař potvrdí editaci a tak uloží lístek zpět do systému</li>
+</ul>
+</li>
+<li>Co se může pokazit
+<ul>
+<li>Některé údaje mohou kolidovat s jinými lístky</li>
+<li>Některé údaje mohou kolidovat s požadvky předmětu či učitele</li>
+</ul>
+</li>
+<li>Po dokončení
+<ul>
+<li>Rozvrhový lístek je zapsán v systému</li>
+</ul>
+</li>
+</ul>
+<h4 id="zobrazen%C3%AD-mnou-vyu%C4%8Dovan%C3%BDch-rozvrhov%C3%BDch-l%C3%ADstk%C5%AF-pro-dan%C3%BD-semestr">Zobrazení mnou vyučovaných rozvrhových lístků pro daný semestr</h4>
+<ul>
+<li>Počáteční stav
+<ul>
+<li>Učitel je přihlášen ke svému účtu v systému</li>
+</ul>
+</li>
+<li>Normální situace
+<ul>
+<li>Učitel zvolí možnost &quot;zobrazit moje lístky&quot;</li>
+<li>Systém vygeneruje seznam lístků, u nichž je jako učitel tento zapsán</li>
+<li>Systém umožní zobrazit seznam těchto lístků</li>
+<li>Systém umožní zobrazit lístky v rozvrhové tabulce</li>
+</ul>
+</li>
+<li>Co se může pokazit
+<ul>
+<li>Učitel nemá v tomto semestru přiděleny žádné lístky</li>
+</ul>
+</li>
+</ul>
+<h2 id="information-model">Information model</h2>
+<pre class="hljs"><code><div>@startuml
+left to right direction
+
+class &quot;Student&quot; as Student {
+    Jméno
+    Příjmení
+    Login
+    E-mail
+    Studijní_program
+    Rok
+}
+
+class &quot;Učitel&quot; as Ucitel {
+    Jméno
+    Příjmení
+    Login
+    E-mail
+    Katedra
+}
+
+class &quot;Rozvrhový komisař&quot; as Komisar {
+    Jméno
+    Příjmení
+    Login
+    E-mail
+}
+
+class &quot;Předmět&quot; as Predmet {
+    Název
+    Kód
+    Kredity
+    Semestr
+    Garant
+}
+
+class &quot;Rozvrhový lístek&quot; as Listek {
+    Datum
+    Čas
+    Kapacita
+}
+
+class &quot;Studijní plán&quot; as Plan {
+    Specializace
+}
+
+class &quot;Učebna&quot; as Ucebna {
+    Číslo
+    Patro
+    Budova
+    Kapacita
+}
+
+
+Student &quot;0..m&quot; -- &quot;0..n&quot; Listek : zapsaný na &gt;
+Ucitel &quot;1&quot; -- &quot;0..n&quot; Listek : vyučuje na &gt;
+Komisar &quot;1..m&quot; -- &quot;1..n&quot; Listek : edituje &gt;
+Predmet &quot;1&quot; -- &quot;0..n&quot; Listek
+Predmet &quot;1..m&quot; -- &quot;1..n&quot; Plan
+Ucebna &quot;1&quot; -- &quot;1&quot; Listek
+
+@enduml
+</div></code></pre>
+<h3 id="student">Student</h3>
+<p>Osoba zapsaná ke studijnímu programu.</p>
+<h3 id="u%C4%8Ditel">Učitel</h3>
+<p>Osoba vyučující nějaký předmět uvedený ve studijním plánu.</p>
+<h3 id="rozvrhov%C3%BD-komisa%C5%99">Rozvrhový komisař</h3>
+<p>Osoba, která vytváří rozvrhové lístky a sestavuje z nich rozvrhy.</p>
+<h3 id="p%C5%99edm%C4%9Bt">Předmět</h3>
+<p>Tématický kurz vyučovaný během semestru, který zahrnuje přednásky a cvičení.</p>
+<h3 id="rozvrhov%C3%BD-l%C3%ADstek">Rozvrhový lístek</h3>
+<p>Jednotokový záznam v rozvrhu postihující datum, čas a místo konání, vyučujícího a příslušnost k předmětu.</p>
+<h3 id="studijn%C3%AD-pl%C3%A1n">Studijní plán</h3>
+<p>Seznam předmětů, které musí student splnit.</p>
+<h3 id="u%C4%8Debna">Učebna</h3>
+<p>Místnost, ve které se vyučuje, s přesně danou polohou.</p>
+
+</body>
+</html>
