@@ -338,7 +338,7 @@ class "Student" as Student {
     Rok
 }
 
-class "Učitel" as Učitel {
+class "Učitel" as Ucitel {
     Jméno
     Příjmení
     Login
@@ -346,14 +346,14 @@ class "Učitel" as Učitel {
     Katedra
 }
 
-class "Rozvrhový komisař" as "Komisař" {
+class "Rozvrhový komisař" as Komisar {
     Jméno
     Příjmení
     Login
     E-mail
 }
 
-class "Předmět" as "Předmět" {
+class "Předmět" as Predmet {
     Název
     Kód
     Kredity
@@ -361,17 +361,17 @@ class "Předmět" as "Předmět" {
     Garant
 }
 
-class "Rozvrhový lístek" as "Lístek"{
+class "Rozvrhový lístek" as Listek {
     Datum
     Čas
     Kapacita
 }
 
-class "Studijní plán" as "Plán" {
+class "Studijní plán" as Plan {
     Specializace
 }
 
-class "Učebna" as "Učabna" {
+class "Učebna" as Ucebna {
     Číslo
     Patro
     Budova
@@ -379,12 +379,12 @@ class "Učebna" as "Učabna" {
 }
 
 
-Student "0..m" -- "0..n" Lístek : zapsaný na >
-Učitel "1" -- "0..n" Lístek : vyučuje na >
-Komisař "1..m" -- "1..n" Lístek : edituje >
-Předmět "1" -- "0..n" Lístek
-Předmět "1..m" -- "1..n" Plán
-Učebna "1" -- "1" Lístek
+Student "0..m" -- "0..n" Listek : zapsaný na >
+Ucitel "1" -- "0..n" Listek : vyučuje na >
+Komisar "1..m" -- "1..n" Listek : edituje >
+Predmet "1" -- "0..n" Listek
+Predmet "1..m" -- "1..n" Plan
+Ucebna "1" -- "1" Listek
 
 @enduml
 ```
