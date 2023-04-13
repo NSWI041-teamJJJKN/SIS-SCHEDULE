@@ -403,7 +403,11 @@ Osoba, která vytváří rozvrhové lístky a sestavuje z nich rozvrhy.
 
 ### Předmět
 
+Tématický kurz vyučovaný během semestru, který zahrnuje přednásky a cvičení.
+
 ### Rozvrhový lístek
+
+Jednotokový záznam v rozvrhu postihující datum, čas a místo konání, vyučujícího a příslušnost k předmětu.
 
 ### Studijní plán
 
