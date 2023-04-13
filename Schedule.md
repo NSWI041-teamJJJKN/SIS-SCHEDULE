@@ -341,20 +341,91 @@ uc3<|--uc4 : <<includes>>
 
 ## Information model
 
-[*Express the information model of the domain as a UML class diagram in PlantUML. Do not use class methods in the diagram, only classes, class attributes and associations connecting classes.*]
-
 ```plantuml
 @startuml
-class Car
+left to right direction
 
-Driver - Car : drives >
-Car *- Wheel : have 4 >
-Car -- Person : < owns
+class "Student" as Student {
+    Jméno
+    Příjmení
+    Login
+    E-mail
+    Studijní_program
+    Rok
+}
+
+class "Učitel" as Učitel {
+    Jméno
+    Příjmení
+    Login
+    E-mail
+    Katedra
+}
+
+class "Rozvrhový komisař" as "Komisař" {
+    Jméno
+    Příjmení
+    Login
+    E-mail
+}
+
+class "Předmět" as "Předmět" {
+    Název
+    Kód
+    Kredity
+    Semestr
+    Garant
+}
+
+class "Rozvrhový lístek" as "Lístek"{
+    Datum
+    Čas
+    Kapacita
+}
+
+class "Studijní plán" as "Plán" {
+    Specializace
+}
+
+class "Učebna" as "Učabna" {
+    Číslo
+    Patro
+    Budova
+    Kapacita
+}
+
+
+Student "0..m" -- "0..n" Lístek : zapsaný na >
+Učitel "1" -- "0..n" Lístek : vyučuje na >
+Komisař "1..m" -- "1..n" Lístek : edituje >
+Předmět "1" -- "0..n" Lístek
+Předmět "1..m" -- "1..n" Plán
+Učebna "1" -- "1" Lístek
+
 @enduml
 ```
 
-[*Document each class with a short description in a separate subsection*]
+### Student
 
-### [*Class name*]
+Osoba zapsaná ke studijnímu programu.
 
-[*Class description*]
+### Učitel
+
+Osoba vyučující nějaký předmět uvedený ve studijním plánu.
+
+### Rozvrhový komisař
+
+Osoba, která vytváří rozvrhové lístky a sestavuje z nich rozvrhy.
+
+### Předmět
+
+### Rozvrhový lístek
+
+### Studijní plán
+
+Seznam předmětů, které musí student splnit.
+
+### Učebna
+
+Místnost, ve které se vyučuje, s přesně danou polohou.
+
