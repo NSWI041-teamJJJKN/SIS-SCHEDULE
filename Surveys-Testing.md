@@ -270,3 +270,56 @@ C18 odpovede sa zobrazuju vyucujucim
 | 4 | Uzivatel odosle odpovede | system ho vrati na anketu obsahujucu odpovede ktore vyplnil pred odoslanim a zvyrazni vynechanu povinnu otazku ||||
 
 ___
+
+## Test pro Zobrazení kalendář deadlinů učitel
+Vytvořil Jan Svojanovský
+
+### Test conditions
+C1 Otevření kalendáře deadlinů 
+
+C2 Zobrazení všech deadlinů pro daný měsíc
+
+C3 Zobrazení všech deadlinů v jiném měsíci
+
+C4 Změnit datum deadline pro danou anketu
+
+C5 Přehled prozatimních odpovědí na anketu
+
+C6 Podle mě můžu překopírovat půlku věcí co má písek IDK
+
+
+### Test cases
+||||||
+|---|---|---|---|---|
+| ID | 1 ||||
+| Title | Zobrazení kalendáře deadline ||||
+| Priority | - ||||
+| Preconditions | Anketa je vytvořena ||||
+| Postconditions | - ||||
+| Role | Učitel ||||
+| Test data | - ||||
+| Covered test conditions | C1, C2 & C3 ||||
+| Test steps |||||
+| Number | Action | Expected result | Result | Comment |
+| 1 | Uživatel načte v prohlížeči stránku SISu | Systém zobrazí domovskou obrazovku SISu |||
+| 2 | Uživatel zadá své přihlašovací jméno a heslo, klikne na tlačítko [Přihlásit] | Systém uživatele přihlásí |||
+| 3 | Uživatel klikne na tlačítko [Anketa] | Systém zobrazí seznam dostupných anket |||
+| 4 | Uživatel klikne na tlačítko [deadliny] | Systém zobrazí nabídku měsíců |||
+| 5 | Uživatel klikne na tlačítko [zobrazit] | Systém zobrazí deadliny anket pro daný měsíc |||
+
+||||||
+|---|---|---|---|---|
+| ID | 2 ||||
+| Title | Zobrazení prozatimních výsledků ankety ||||
+| Priority | - ||||
+| Preconditions | Anketa je vytvořena ||||
+| Postconditions |  ||||
+| Role | učitel ||||
+| Test data | - ||||
+| Covered test conditions | C5 ||||
+| Test steps |||||
+| Number | Action | Expected result | Result | Comment |
+| 1 | Uživatel načte v prohlížeči stránku SISu | Systém zobrazí domovskou obrazovku SISu |||
+| 2 | Uživatel zadá své přihlašovací jméno a heslo, klikne na tlačítko [Přihlásit] | Systém uživatele přihlásí |||
+| 3 | Uživatel klikne na tlačítko [Anketa] | Systém zobrazí seznam dostupných anket |||
+| 4 | Uživatel vybere konkrétní anketu a klikne na zobrazit výsledky | Systém zobrazí prozatimní výsledky ankety |||
