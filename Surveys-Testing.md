@@ -1,59 +1,24 @@
 # Testy pro modul Ankety 
 
-
-## Test pro Usecase xyz
-Vytvořil Pepa Novák
-
-### Test conditions
-C1 ... 
-
-C2 ...
-
-C3 ...
-
-C4 ...
-
-
-### Test cases
-||||||
-|---|---|---|---|---|
-| ID | 1 ||||
-| Title | Titulek ||||
-| Priority | - ||||
-| Preconditions | Vstupní podmínky ||||
-| Postconditions | Výstupní podmínky ||||
-| Role | Role ||||
-| Test data | - ||||
-| Covered test conditions | C1, C2 & C3 ||||
-| Test steps |||||
-| Number | Action | Expected result | Result | Comment |
-| 1 | Akce 1 | Výsledek 1 ||||
-| 2 | Akce 2 | Výsledek 2 ||||
-| 3 | Akce 3 | Výsledek 3 ||||
-| 4 | Akce 4 | Výsledek 4 ||||
-
-
-||||||
-|---|---|---|---|---|
-| ID | 2 ||||
-| Title | Titulek ||||
-| Priority | - ||||
-| Preconditions | Vstupní podmínky ||||
-| Postconditions | Výstupní podmínky ||||
-| Role | Role ||||
-| Test data | - ||||
-| Covered test conditions | C4 ||||
-| Test steps |||||
-| Number | Action | Expected result | Result | Comment |
-| 1 | Akce 1 | Výsledek 1 ||||
-| 2 | Akce 2 | Výsledek 2 ||||
-| 3 | Akce 3 | Výsledek 3 ||||
-| 4 | Akce 4 | Výsledek 4 ||||
-
-___
-
 ## Test pro Usecase "Zobrazit výsledky specifických anket učiteli"
 Vytvořil Jan Jevčák
+
+### Originální usecase
+- Počáteční stav: 
+  - Učitel vytvořil specifickou anketu, studenti ji vyplnili, čas je před/po deadlinu
+- Normální interakce:
+  - Učitel se přihlásí do systému.
+  - Učitel otevře modul anket a rozevře specifické ankety.
+  - Systém zobrazí učitelovi seznam všech jeho specifických anket pro daný semestr.
+  - Učitel může seznam filtrovat pomocí filtru anket.
+  - Učitel najde a otevře žádanou specifickou anketu k zobrazení.
+  - Systém zobrazí odpovědi studentů na specifickou anketu.
+
+- Chybové situace:
+  - Žádné odpovědi pro daný předmět a dané období neexistují.
+
+- Koncový stav:
+  - Systém zobrazí učiteli odpovědi pro vybranou specifickou anketu.
 
 ### Test conditions
 C1 Anketa je vytvořena
@@ -115,9 +80,29 @@ C9 Zobrazení odpovědí pro anketu
 | 6 | Uživatel zkontroluje odpovědi pro danou anketu | Daná anketa obsahuje právě 2 odpovědi ||||
 
 ___
+___
 
 ## Test pro Usecase Vytvořit specifickou anketu
-Vytvořil Štof
+Vytvořil Kryštof Žucha
+
+### Originální usecase
+- Počáteční stav:
+  - Učitel učí alespoň jeden předmět v daném semestru.
+- Normální interakce:
+  - Učitel se přihlásí do systému a otevře modul anket.
+  - Systém zobrazí seznam předmětů, které učitel učí v aktuálním semestru.
+  - Učitel vybere předmět, ke kterému chce anketu vytvořit.
+  - Učitel vytvoří nějaké číselné otázky a nějaké slovní otázky. V případě slovní otázky si může zaškrtnout filtrování obsahu (obsahuje např. smazání sprostých slov). U každé otázky si může zaškrtnout, jestli je povinná.
+  - Učitel nastaví deadline pro vyplnění a pošle anketu ke zpracování.
+  - Systém ověří, že anketa obsahuje alespoň jednu otázku a že deadline pro vyplnění je dřív než konec aktuálního semestru.
+  - Systém anketu zaznamená, přidá ji do kalendáře deadlinů učiteli a studentům daného předmětu a zpřístupní jim vyplnění.
+- Alternativní scénář:
+  - Učitel žádný předmět neučí, nelze pokračovat v postupu.
+  - Pokud anketa žádnou otázku neobsahuje, vrací se učitel do bodu číslo 4.
+  - Pokud je deadline až po konci semestru, vrací se učitel do bodu 5.
+- Koncový stav:
+  - Anketa je zaznamenána v systému.
+  - Začne se zobrazovat v seznamu anket pro daný předmět daným studentům a v kalendáři deadlinů.
 
 ### Test conditions
 C1 - Učitel se dokáže přihlásit do systému 
@@ -192,10 +177,34 @@ C12 - Systém přijatou korektní anketu zařadí do paměti, a zpřístupní ji
 | 5 | Systém provede ověření přijaté ankety | Anketa je ověřena a vyhodnocena jako nekorektní ||||
 | 6 | Systém anketu vrátí k opravě | Ovládací prvky se znovu zaktivují a učiteli je vypsána hláška, že anketa neobsahuje žádnou otázku a že nemá nastaven validní deadline ||||
 
-____
+___
+___
 
 ## Test pro Usecase Vyplnit generickou anketu pro předmět
-Vytvořila Nicol
+Vytvořila Nicol Čačalová
+
+### Originální usecase
+- Počáteční stav:
+  - Generické ankety byly vytvořeny systémem.
+  - Je období vyplňování anket.
+  - Student je zapsaný do daného předmětu.
+- Normální interakce:
+  - Student se přihlásí do systému.
+  - Student otevře modul anket.
+  - Modul anket zobrazí studentovi seznam všech anket.
+  - Student může seznam filtrovat pomocí filtru anket.
+  - Student najde a otevře žádanou generickou anketu pro předmět k vyplnění.
+  - Student anketu vyplní, zvolí si, zda chce mít odpovědi anonymizovány a jestli si jeho odpovědi mohou zobrazit i studenti.
+  - Student vyplněnou anketu odešle.
+  - Systém zkontroluje, zda jsou všechna povinná pole vyplněna.
+  - Systém odpovědi zaznamená.
+- Chybové situace:
+  - Neexistují žádné ankety odpovídající filtru, které student může vyplnit. Systém toto oznámí.
+  - Student nevyplní odpověď na povinnou otázku.
+  - Systém zobrazí rozpracovanou anketu a zvýrazní místo, kde chybí odpověď.
+- Koncový stav:
+  - Anketa je zaznamenána v systému.
+  - Začne se zobrazovat v seznamu odpovědí podle volby anonymizace.
 
 ### Test conditions
 C1 Anketa sa vytvorila 
@@ -270,9 +279,29 @@ C18 odpovede sa zobrazuju vyucujucim
 | 4 | Uzivatel odosle odpovede | system ho vrati na anketu obsahujucu odpovede ktore vyplnil pred odoslanim a zvyrazni vynechanu povinnu otazku ||||
 
 ___
+___
 
-## Test pro Zobrazení kalendář deadlinů učitel
+
+## Test pro Usecase Zobrazení kalendáře deadlinů učitelem
 Vytvořil Jan Svojanovský
+
+### Originální usecase
+- Počáteční stav:
+  - Učitel je přihlášený do systému.
+- Normální interakce:
+  - Učitel otevře modul anket v něm rozklikne kalendář deadlinů.
+  - Systém zobrazí učitelovi tabulku kalendáře s deadliny pro daný měsíc.
+  - Učitel najede myší na anketu v některém dni.
+  - Systém zobrazí drobné vyskakovací okénko s informacemi o anketě.
+  - Učitel klikne na některou z anket v kalendáři.
+  - Učitel může prodloužit deadline pro nakliklou anketu.
+  - Učitel si může prohlédnout doposud odeslané odpovědi na specifické ankety.
+- Alternativní scénář:
+  - Učitel otevře modul anket v něm rozklikne kalendář deadlinů, a zvolí možnost "zobrazit jako seznam".
+  - Systém zobrazí učitelovi seznam anket řazených podle data deadlinu (bez funkce kalendáře).
+  - Není žádná anketa k zobrazení.
+- Koncový stav:
+  - Učitel zjistil deadliny jím zadaných specifických anket a případně některé z nich prodloužil, či si přečetl vyplněné ankety.
 
 ### Test conditions
 C1 Otevření kalendáře deadlinů 
@@ -325,8 +354,27 @@ C6 Podle mě můžu překopírovat půlku věcí co má písek IDK
 | 4 | Uživatel vybere konkrétní anketu a klikne na zobrazit výsledky | Systém zobrazí prozatimní výsledky ankety |||
 
 ___
+___
+
 ## Test pro Usecase Vytvoření generické ankety
 Vytvořil Jaroslav Švarc
+
+### Originální usecase
+- Počáteční stav:
+  - Zkouškové období semestru, pro který chceme vytvořit generické ankety, doposud nezapočalo.
+- Normální interakce:
+  - Vedoucí katedry se přihlásí do systému.
+  - Vedoucí katedry otevře modul anket a přesune se do části pro vytváření anket.
+  - Vedoucí katedry vytvoří číselné a slovní otázky a u každé si zvolí, zda-li je povinná. V případě slovních otázek si navíc může zaškrtnout filtrování dle obsahu (například cenzura vulgarismů).
+  - Systém ověří, že anketa obsahuje alespoň jednu otázku.
+  - Vedoucí katedry explicitně zvolí předměty, pro které se ankety generovat nemají.
+  - Systém si uloží generickou anketu a na začátku zkouškového období vytvoří tuto anketu pro všechny vyučované předměty, zpřístupní ji studentům k vyplnění a přidá velký červený banner do kalendáře deadlinů.
+- Alternativní scénář:
+  - Pokud vedoucí katedry explicitně nevytvoří otázky pro ankety, použijí se defaultní.
+  - Vedoucí katedry se pokusí ankety zadat po začátku zkouškového období. Systém nedovolí přistoupit na formulář pro vygenerování generických anket neboť právě probíhají.
+  - Vedoucí katedry nezadal žádnou otázku. Systém ho upozorní a požádá o nápravu.
+- Koncový stav:
+  - Systém má seznam otázek pro generické ankety, které se zobrazí na začátku zkouškového období u všech předmětů vyučovaných v daném semestru, které nebyly explicitně vyfiltrovány Vedoucím katedry.
 
 ### Test conditions
 C1 - Není zkouškové období
